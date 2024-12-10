@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:44:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/10 18:07:05 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/10 21:10:49 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,7 @@
 // See README in the root project for more information.
 // -----------------------------------------------------------------------------
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include "lib/MLX42/include/MLX42/MLX42.h"
-
-#define WIDTH 512
-#define HEIGHT 512
+#include "./inc/so_long.h"
 
 static mlx_image_t* image;
 
@@ -98,3 +92,7 @@ int32_t main(void)
 	mlx_terminate(mlx);
 	return (EXIT_SUCCESS);
 }
+
+/*int	main(int argc, char **argv)
+{}
+*/
