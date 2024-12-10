@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:44:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/09 19:11:44 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/09 22:06:25 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "lib/include/MLX42/MLX42.h"
-#include "lib/include/MLX42/MLX42_Int.h"
+#include "lib/MLX42/include/MLX42/MLX42.h"
+#include "lib/MLX42/include/MLX42/MLX42_Int.h"
 
 #define WIDTH 512
 #define HEIGHT 512
