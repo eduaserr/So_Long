@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 16:44:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/11 18:57:42 by eduaserr         ###   ########.fr       */
+/*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
+/*   Updated: 2024/12/11 19:08:14 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/so_long.h"
+#include "../inc/so_long.h"
 
-void	ft_error(char *str)
+int	check_extension(char **argv)
 {
-	ft_printf(str);
-	exit(EXIT_FAILURE);
-}
+	char	*extension;
 
-int	main(int argc, char **argv)
-{
-	//t_game	game;
-
-	if (argc != 2 || check_extension(argv) == 0)
-		ft_error("Invalid arguments\n");
-	return (0);
+	if((extension = ft_strrchr(argv[1], '.')) != NULL )
+	{
+		if(ft_strncmp(extension,".ber") == 0)
+		{
+			return (0);
+		}
+	}
+	return (1);
 }
