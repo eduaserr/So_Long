@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:44:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/11 18:57:42 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/13 20:47:12 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 {
 	//t_game	game;
 
-	if (argc != 2 || check_extension(argv) == 0)
+	if (argc != 2 || check_extension(argv) == 1)
 		ft_error("Invalid arguments\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/11 19:08:14 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/13 18:01:22 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 int	check_extension(char **argv)
 {
-	char	*extension;
+	int	len;
 
-	if((extension = ft_strrchr(argv[1], '.')) != NULL )
-	{
-		if(ft_strncmp(extension,".ber") == 0)
-		{
-			return (0);
-		}
-	}
+	len = ft_strlen(argv[1]);
+
+	if (ft_strncmp(&argv[1][len - 4], ".ber", 4) == 0)
+		return (0);
 	return (1);
 }
