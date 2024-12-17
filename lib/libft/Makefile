@@ -6,7 +6,7 @@
 #    By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/12 14:05:06 by eduaserr          #+#    #+#              #
-#    Updated: 2024/12/10 16:54:34 by eduaserr         ###   ########.fr        #
+#    Updated: 2024/12/17 16:40:41 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ AR	= ar rcs
 RANLIB	= ranlib
 
 ### SRCS ###
-SRCS	= func/ft_isalnum.c func/ft_isalpha.c func/ft_isascii.c func/ft_isdigit.c func/ft_isprint.c func/ft_toupper.c func/ft_tolower.c func/ft_putchar_fd.c func/ft_putnbr_fd.c func/ft_putstr_fd.c func/ft_putendl_fd.c\
+SRCS	= func/ft_isalnum.c func/ft_isalpha.c func/ft_isascii.c func/ft_isdigit.c func/ft_isprint.c func/ft_isspace.c func/ft_toupper.c func/ft_tolower.c func/ft_putchar_fd.c func/ft_putnbr_fd.c func/ft_putstr_fd.c func/ft_putendl_fd.c\
 		func/ft_memset.c func/ft_bzero.c func/ft_calloc.c func/ft_memchr.c func/ft_memcpy.c func/ft_memmove.c func/ft_memcmp.c\
 		func/ft_strchr.c func/ft_strrchr.c func/ft_strncmp.c func/ft_strnstr.c func/ft_strdup.c func/ft_substr.c func/ft_strjoin.c func/ft_strtrim.c func/ft_strmapi.c func/ft_striteri.c\
 		func/ft_atoi.c func/ft_strlcat.c func/ft_strlcpy.c func/ft_strlen.c func/ft_itoa.c func/ft_split.c
@@ -34,16 +34,17 @@ GNL_SRCS = Get_Next_line/get_next_line_bonus.c Get_Next_line/get_next_line_utils
 ### OBJS ###
 PF_OBJS = $(PF_SRCS:.c=.o)
 GNL_OBJS = $(GNL_SRCS:.c=.o)
-OBJS	= $(SRCS:.c=.o) $(PF_OBJS) $(GNL_OBJS)
 BONUS_OB = $(BONUS:.c=.o)
+OBJS	= $(SRCS:.c=.o) $(PF_OBJS) $(GNL_OBJS)
 
 ### RULES ###
 all : $(NAME)
 
-$(NAME): $(OBJS)
-	@$(AR) $(NAME) $(OBJS)
-	@echo "libft compiled successfully"
+$(NAME): $(OBJS) $(BONUS_OB)
+	@$(AR) $(NAME) $(OBJS) $(BONUS_OB)
+	@echo "libft + ft_printf + GNL compiled successfully"
 
+# compile bonus + lib
 bonus : $(OBJS) $(BONUS_OB)
 	@(AR) $(NAME) $(OBJS) $(BONUS_OB)
 
