@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/11 18:57:57 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/17 20:07:40 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,30 @@
 #include "../lib/MLX42/include/MLX42/MLX42.h"
 #include "../lib/libft/libft.h"
 
-int	check_extension(char **argv);
+typedef struct	s_map
+{
+	char	**map;
+}		t_map;
 
 typedef struct	s_game
 {
 	void	*mlx;
 	void	*window;
+	t_map	*map;
 }		t_game;
+
+int		check_extension(char **argv);
+
+void	init_struct(t_game *game);
+
+void	init_parameters(t_game *game, char *str);
+
+char	**read_map(char *file_map);
+
+void	parse_map();
+
+void	ft_error(char *str);
+
+void	ft_printmap(char **file_map);
 
 #endif

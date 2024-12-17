@@ -6,7 +6,7 @@
 #    By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 16:02:10 by eduaserr          #+#    #+#              #
-#    Updated: 2024/12/11 15:43:32 by eduaserr         ###   ########.fr        #
+#    Updated: 2024/12/17 20:06:34 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ LIBS	:= -L $(LIB) -lft -L $(LIBMLX)/build/ -lmlx42 -ldl -lglfw -pthread -lm
 
 ### SRC ###
 SRC		:= ./main.c
-SRCS	:= src/parse/parse_input.c
+SRCS	:= src/init/init_param.c\
+		src/parse/parse_input.c\
+		src/utils/utils_map.c
 
 ### OBJ ###
 OBJS	:= ${SRCS:.c=.o} $(SRC:.c=.o)
