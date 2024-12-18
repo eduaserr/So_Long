@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:05:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/18 13:57:44 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/18 16:11:00 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	**read_map(char *file_map)
 {
-	char	*superline;
 	char	**map;
+	char	*superline;
 	char	*line;
 	int		fd;
 	int		i;
@@ -34,6 +34,7 @@ char	**read_map(char *file_map)
 	}
 	map = ft_split(superline, '\n');
 	ft_printmap(map);
+	free(superline);
 	return (map);
 }
 

@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:44:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/17 18:33:22 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/18 20:35:41 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int	main(int argc, char **argv)
 	if (argc != 2 || check_extension(argv) == 1)
 		ft_error("Invalid arguments\n");
 	init_parameters(&game, argv[1]);
+	ft_freemap(&game.map);
 	return (0);
 }
