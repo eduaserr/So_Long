@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/17 20:07:40 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/18 14:00:42 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ typedef struct	s_game
 {
 	void	*mlx;
 	void	*window;
-	t_map	*map;
+	t_map	map;
 }		t_game;
 
 int		check_extension(char **argv);
 
 void	init_struct(t_game *game);
 
-void	init_parameters(t_game *game, char *str);
+void	init_parameters(t_game *game, char *file_map);
 
 char	**read_map(char *file_map);
 

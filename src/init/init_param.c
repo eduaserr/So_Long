@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:05:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/17 20:21:00 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/18 13:57:44 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 char	**read_map(char *file_map)
 {
+	char	*superline;
 	char	**map;
 	char	*line;
 	int		fd;
 	int		i;
 
+	superline = NULL;
 	i = 0;
 	fd = open(file_map, O_RDONLY);
 	if (fd < 0)
@@ -26,10 +28,11 @@ char	**read_map(char *file_map)
 	line = get_next_line(fd);
 	while (line)
 	{
-		map = ft_split(line, '\n');
+		superline = ft_strjoin_gnl(superline, line);
 		free(line);
 		line = get_next_line(fd);
 	}
+	map = ft_split(superline, '\n');
 	ft_printmap(map);
 	return (map);
 }
@@ -42,6 +45,7 @@ void	init_struct(t_game *game)
 
 void	init_parameters(t_game *game, char *file_map)
 {
-	game->map->map = read_map(file_map);
-	//init_struct(game); init_struct(ft_bzero(&game, sizeof(game))) iniciar todas las estructuras?
+	game->map.map = read_map(file_map);
+	// game_copy
+	//init_struct(game); init_struct(&game, sizeof(t_game)) iniciar todos los componenetes de las estructuras
 }
