@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/18 20:51:41 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/19 15:30:18 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ void	ft_error(char *str);
 
 void	ft_printmap(char **file_map);
 
-void	ft_freemap(t_game *map);
+void	ft_freemap(char **map);
 
 #endif
