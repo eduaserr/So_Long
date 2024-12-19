@@ -6,16 +6,11 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/17 17:52:33 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/19 15:49:57 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-
-void	parse_map()
-{
-	
-}
 
 int	check_extension(char **argv)
 {

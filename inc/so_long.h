@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/19 15:30:18 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/19 18:47:02 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,15 @@ int		check_extension(char **argv);
 
 void	init_struct(t_game *game);
 
-void	init_parameters(t_game *game, char *file_map);
+void	check_map(t_game *game, char *file_map);
+
+void	get_fullmatrixlen(char **map, int y, int x);
 
 char	**read_map(char *file_map);
 
-void	parse_map();
-
 void	ft_error(char *str);
+
+void	printlines(char *str);
 
 void	ft_printmap(char **file_map);
 

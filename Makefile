@@ -6,7 +6,7 @@
 #    By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 16:02:10 by eduaserr          #+#    #+#              #
-#    Updated: 2024/12/17 20:06:34 by eduaserr         ###   ########.fr        #
+#    Updated: 2024/12/19 16:35:22 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBS	:= -L $(LIB) -lft -L $(LIBMLX)/build/ -lmlx42 -ldl -lglfw -pthread -lm
 
 ### SRC ###
 SRC		:= ./main.c
-SRCS	:= src/init/init_param.c\
+SRCS	:= src/init/init_param.c src/init/get_map.c\
 		src/parse/parse_input.c\
 		src/utils/utils_map.c
 
