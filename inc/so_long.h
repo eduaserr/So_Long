@@ -6,28 +6,28 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/20 15:06:04 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/20 18:58:12 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include "../lib/MLX42/include/MLX42/MLX42.h"
-#include "../lib/libft/libft.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <stdbool.h>
+# include "../lib/MLX42/include/MLX42/MLX42.h"
+# include "../lib/libft/libft.h"
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char	**map;
-	int		WIDTH;
-	int		LENGTH;
+	int		width;
+	int		length;
 	char	*copy_map;
 }		t_map;
 
-typedef struct	s_game
+typedef struct s_game
 {
 	void	*mlx;
 	void	*window;

@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 19:49:39 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/20 15:24:50 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/20 18:56:23 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	get_fullmatrixlen(char **map, int *y, int *x)
 	int	tmp;
 
 	if (!map)
-	return ;
+		return ;
 	while (map[*y])
 	{
 		tmp = 0;
