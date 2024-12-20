@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/19 18:47:02 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:06:04 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	init_struct(t_game *game);
 
 void	check_map(t_game *game, char *file_map);
 
-void	get_fullmatrixlen(char **map, int y, int x);
+void	get_fullmatrixlen(char **map, int *y, int *x);
 
 char	**read_map(char *file_map);
 

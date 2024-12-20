@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 19:49:39 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/19 19:05:07 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:24:50 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,17 @@ void	ft_freemap(char **map)
 	free(map);
 }
 
-void	get_fullmatrixlen(char **map, int y, int x)
+void	get_fullmatrixlen(char **map, int *y, int *x)
 {
-	int	flag;
-	int	n;
+	int	tmp;
 
-	flag = 0;
-	if (!map || !map[y])
+	if (!map)
 	return ;
-	while (map[y])
+	while (map[*y])
 	{
-		x = 0;
-		while (map[y][x])
-			x++;
-		if (!flag)
-		{
-			n = x;
-			flag = 1;
-		}
-		if (n != x)
-			ft_error("map limits validation error\n");
-		y++;
+		tmp = 0;
+		while (map[*y][tmp++])
+			*x = tmp;
+		(*y)++;
 	}
 }
