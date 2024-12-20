@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/20 19:01:54 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/20 19:30:43 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,5 @@ void	check_map(t_game *game, char *file_map)
 	game->map.width = 0;
 	game->map.map = read_map(file_map);
 	get_fullmatrixlen(game->map.map, &game->map.length, &game->map.width);
+	check_limits(game);
 }
