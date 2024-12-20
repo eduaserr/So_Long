@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/20 20:07:10 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/20 20:08:22 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_extension(char **argv)
 		return (0);
 	return (1);
 }
-int		line_edges(t_game *game)
+void	line_edges(t_game *game)
 {
 	char	**map;
 	int		i;
@@ -40,7 +40,6 @@ int		line_edges(t_game *game)
 		else
 			ft_error("Must has to be surrounded by walls\n");
 	}
-	return (1);
 }
 
 void	column_edges(t_game *game)

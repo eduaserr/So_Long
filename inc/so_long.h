@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/20 19:47:22 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/20 20:08:13 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	check_map(t_game *game, char *file_map);
 //parse_input
 int		check_extension(char **argv);
 
-int		line_edges(t_game *game);
+void	line_edges(t_game *game);
 
 void	column_edges(t_game *game);
 
