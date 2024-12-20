@@ -6,17 +6,11 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:44:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/19 16:33:53 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/20 19:08:24 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./inc/so_long.h"
-
-void	ft_error(char *str)
-{
-	ft_printf(str);
-	exit(EXIT_FAILURE);
-}
 
 int	main(int argc, char **argv)
 {

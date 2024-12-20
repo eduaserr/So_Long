@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/20 18:58:12 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/20 19:10:26 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,20 @@ typedef struct s_game
 	t_map	map;
 }		t_game;
 
-int		check_extension(char **argv);
-
-void	init_struct(t_game *game);
-
-void	check_map(t_game *game, char *file_map);
-
+/*	INIT	*/
+//	get_map
 void	get_fullmatrixlen(char **map, int *y, int *x);
 
 char	**read_map(char *file_map);
 
+void	check_map(t_game *game, char *file_map);
+
+/*	PARSE	*/
+//parse_input
+int		check_extension(char **argv);
+
+/*	UTILS	*/
+//	utils_map
 void	ft_error(char *str);
 
 void	printlines(char *str);
