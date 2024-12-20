@@ -6,16 +6,25 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/20 18:56:05 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/20 19:01:54 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-void	printlines(char *str)
+void	get_fullmatrixlen(char **map, int *y, int *x)
 {
-	if (str)
-		ft_printf("line --> %s\n", str);
+	int	tmp;
+
+	if (!map)
+		return ;
+	while (map[*y])
+	{
+		tmp = 0;
+		while (map[*y][tmp++])
+			*x = tmp;
+		(*y)++;
+	}
 }
 
 static int	ft_strlen_sl(char *str)
@@ -59,8 +68,8 @@ char	**read_map(char *file_map)
 
 void	check_map(t_game *game, char *file_map)
 {
-	game->map.LENGTH = 0;
-	game->map.WIDTH = 0;
+	game->map.length = 0;
+	game->map.width = 0;
 	game->map.map = read_map(file_map);
-	get_fullmatrixlen(game->map.map, &game->map.LENGTH, &game->map.WIDTH);
+	get_fullmatrixlen(game->map.map, &game->map.length, &game->map.width);
 }

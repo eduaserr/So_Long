@@ -6,11 +6,17 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 19:49:39 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/20 18:56:23 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/20 19:01:43 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
+
+void	printlines(char *str)
+{
+	if (str)
+		ft_printf("line --> %s\n", str);
+}
 
 void	ft_printmap(char **file_map)
 {
@@ -32,19 +38,4 @@ void	ft_freemap(char **map)
 		i++;
 	}
 	free(map);
-}
-
-void	get_fullmatrixlen(char **map, int *y, int *x)
-{
-	int	tmp;
-
-	if (!map)
-		return ;
-	while (map[*y])
-	{
-		tmp = 0;
-		while (map[*y][tmp++])
-			*x = tmp;
-		(*y)++;
-	}
 }
