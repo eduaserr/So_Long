@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/22 02:46:45 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/22 03:55:27 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ static char	*get_line(int fd)
 
 	superline = NULL;
 	line = get_next_line(fd);
+	if (!line || line)
+	{
+		free(line);
+		ft_error("Empty line error\n");
+	}
 	size_line = ft_strlen_sl(line);
 	while (line)
 	{

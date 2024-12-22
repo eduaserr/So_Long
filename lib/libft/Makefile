@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+         #
+#    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/12 14:05:06 by eduaserr          #+#    #+#              #
-#    Updated: 2024/12/17 16:40:41 by eduaserr         ###   ########.fr        #
+#    Updated: 2024/12/22 03:08:39 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### COMPILATION ###
 NAME	= libft.a
 CC	= clang
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -g
 RM	= rm -f
 AR	= ar rcs
 RANLIB	= ranlib
