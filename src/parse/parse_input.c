@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/22 01:51:39 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/22 02:20:00 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,12 @@ void	column_edges(t_game *game)
 	i = 0;
 	map = game->map.map;
 	
-	while (map[i][0] && map[i][game->map.width - 1])
+	ft_printf("widht -> %d\n", game->map.width);
+	while (map[i] && map[i][game->map.width - 1])
 	{
+		ft_printf("i : %d\n", i);
+		ft_printf("column left : %c\n", map[i][0]);
+		ft_printf("column right : %c\n", map[i][game->map.width - 1]);
 		if (map[i][0] == '1' && map[i][game->map.width - 1] == '1')
 			i++;
 		else
@@ -61,5 +65,7 @@ void	column_edges(t_game *game)
 void	check_limits(t_game *game)
 {
 	line_edges(game);
+	ft_printf("si llega\n");
 	column_edges(game);
+	ft_printf("No llega\n");
 }

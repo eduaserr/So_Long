@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/20 19:30:43 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/22 02:46:45 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,13 @@ static int	ft_strlen_sl(char *str)
 	return (i);
 }
 
-char	**read_map(char *file_map)
+static char	*get_line(int fd)
 {
-	char	**map;
-	char	*superline;
-	char	*line;
+	char 	*superline;
+	char 	*line;
 	int		size_line;
-	int		fd;
 
 	superline = NULL;
-	fd = open(file_map, O_RDONLY);
-	if (fd < 0)
-		ft_error("Open fd error\n");
 	line = get_next_line(fd);
 	size_line = ft_strlen_sl(line);
 	while (line)
@@ -58,9 +53,27 @@ char	**read_map(char *file_map)
 		superline = ft_strjoin_gnl(superline, line);
 		free(line);
 		line = get_next_line(fd);
-		if (line && (size_line != ft_strlen_sl(line)))
+		if (!line || (size_line != ft_strlen_sl(line)))
+		{
+			free(line);
+			free(superline);
 			ft_error("Size map error\n");
+		}
 	}
+	return (superline);
+}
+
+char	**read_map(char *file_map)
+{
+	char	**map;
+	char	*superline;
+	int		fd;
+
+	superline = NULL;
+	fd = open(file_map, O_RDONLY);
+	if (fd < 0)
+		ft_error("Open fd error\n");
+	superline = get_line(fd);
 	map = ft_split(superline, '\n');
 	free(superline);
 	return (map);
@@ -72,5 +85,6 @@ void	check_map(t_game *game, char *file_map)
 	game->map.width = 0;
 	game->map.map = read_map(file_map);
 	get_fullmatrixlen(game->map.map, &game->map.length, &game->map.width);
+	ft_printf("lenght -> %d || width-> %d\n", game->map.length, game->map.width);
 	check_limits(game);
 }
