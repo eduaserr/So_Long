@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/23 01:38:31 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/23 17:56:43 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-void	get_fullmatrixlen(char **map, int *y, int *x)
+static void	get_fullmatrixlen(char **map, int *y, int *x)
 {
 	int	tmp;
 
@@ -27,22 +27,10 @@ void	get_fullmatrixlen(char **map, int *y, int *x)
 	}
 }
 
-static int	ft_strlen_sl(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i] != '\0' && str[i] != '\n')
-		i++;
-	return (i);
-}
-
 static char	*get_line(int fd)
 {
-	char 	*superline;
-	char 	*line;
+	char	*superline;
+	char	*line;
 	int		size_line;
 
 	superline = NULL;
@@ -68,7 +56,7 @@ static char	*get_line(int fd)
 	return (superline);
 }
 
-char	**read_map(char *file_map)
+static char	**read_map(char *file_map)
 {
 	char	**map;
 	char	*superline;
@@ -85,11 +73,18 @@ char	**read_map(char *file_map)
 	return (map);
 }
 
+static void	check_elements(t_game *game)
+{
+	check_limits(game);
+	check_entities(game->map, game->map.map);
+}
+
 void	check_map(t_game *game, char *file_map)
 {
 	game->map.length = 0;
 	game->map.width = 0;
 	game->map.map = read_map(file_map);
 	get_fullmatrixlen(game->map.map, &game->map.length, &game->map.width);
-	check_limits(game);
+	check_elements(game);
+	ft_printmap(game->map.map);
 }

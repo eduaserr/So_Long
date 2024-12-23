@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/23 01:36:10 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/23 17:55:27 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,13 @@ int	check_extension(char **argv)
 	return (1);
 }
 
-void	line_edges(t_game *game)
+static void	line_edges(t_game *game)
 {
 	char	**map;
 	int		i;
 
 	i = 0;
 	map = game->map.map;
-	
 	while (map[0][i] && map[game->map.length - 1][i])
 	{
 		if (map[0][i] == '1' && map[game->map.length - 1][i] == '1')
@@ -44,14 +43,13 @@ void	line_edges(t_game *game)
 	}
 }
 
-void	column_edges(t_game *game)
+static void	column_edges(t_game *game)
 {
 	char	**map;
 	int		i;
 
 	i = 0;
 	map = game->map.map;
-	
 	while (map[i] && map[i][game->map.width - 1])
 	{
 		if (map[i][0] == '1' && map[i][game->map.width - 1] == '1')
@@ -68,4 +66,31 @@ void	check_limits(t_game *game)
 {
 	line_edges(game);
 	column_edges(game);
+}
+
+void	check_entities(t_map map, char **filemap)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 1;
+	(void)map;
+	while (filemap[i])
+	{
+		j = 1;
+		while ((filemap[i][j]) && i < (map.length - 1) && j < (map.width - 1))
+		{
+			if (filemap[i][j] == '0'
+			&& filemap[i][j] == 'C'
+			&& filemap[i][j] == 'E'
+			&& filemap[i][j] == 'P')
+			{
+				ft_freemap(filemap);
+				ft_error("Entities map error\n");
+			}
+			j++;
+		}
+		i++;
+	}
 }
