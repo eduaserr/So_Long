@@ -6,26 +6,11 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/24 01:30:56 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/24 02:27:13 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
-
-static void	get_fullmatrixlen(char **map, int *y, int *x)
-{
-	int	tmp;
-
-	if (!map)
-		return ;
-	while (map[*y])
-	{
-		tmp = 0;
-		while (map[*y][tmp++])
-			*x = tmp;
-		(*y)++;
-	}
-}
 
 static char	*get_line(int fd)
 {
@@ -77,7 +62,8 @@ static void	check_elements(t_game *game)
 {
 	line_edges(game);
 	column_edges(game);
-	check_entities(game->map, game->map.map);
+	check_entities(&game->map, game->map.map);
+	valid_path(game);
 	ft_printmap(game->map.map);
 }
 
@@ -85,6 +71,11 @@ void	check_map(t_game *game, char *file_map)
 {
 	game->map.length = 0;
 	game->map.width = 0;
+	game->map.player = 0;
+	game->map.exit = 0;
+	game->map.coin = 0;
+	game->map.floor = 0;
+	game->map.wall = 0;
 	game->map.map = read_map(file_map);
 	get_fullmatrixlen(game->map.map, &game->map.length, &game->map.width);
 	check_elements(game);
