@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/24 01:27:16 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/24 01:32:17 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,11 @@ void	column_edges(t_game *game)
 
 static void	count_entities(t_map map, char **filemap, int i, int j)
 {
+	map.player = 0;
+	map.exit = 0;
+	map.coin = 0;
+	map.floor = 0;
+	map.wall = 0;
 	if (filemap[i][j] == 'P')
 		map.player++;
 	else if (filemap[i][j] == '0')
@@ -83,9 +88,6 @@ static void	count_entities(t_map map, char **filemap, int i, int j)
 
 void	check_entities(t_map map, char **filemap)
 {
-	map.player = 0;
-	map.exit = 0;
-	map.coin = 0;
 	int	i;
 	int	j;
 
