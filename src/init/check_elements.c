@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:05:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/24 02:37:21 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/24 03:16:22 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,14 @@ void	check_entities(t_map *map, char **filemap)
 	}
 }
 
-void	valid_path(t_game game)
+void	player_pos(char **map, t_player *player_pos)
+{
+	(void)map;
+	(void)player_pos;
+}
+
+void	valid_path(t_game *game)
 {
 	(void)game;
+	player_pos(game->map.map, &game->map.player_pos);
 }
