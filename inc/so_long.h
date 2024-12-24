@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/23 17:19:10 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/24 01:22:12 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,28 @@
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 # include "../lib/libft/libft.h"
 
+typedef struct s_player
+{
+	int	y;
+	int	x;
+}		t_player;
+
+typedef struct s_entities
+{
+	t_player	player_pos;
+}		t_entities;
+
 typedef struct s_map
 {
-	char	**map;
-	int		width;
-	int		length;
-	char	player;
-	char	floor;
-	char	coin;
-	char	exit;
+	char		**map;
+	int			width;
+	int			length;
+	int			player;
+	int			floor;
+	int			wall;
+	int			coin;
+	int			exit;
+	t_entities	entities;
 }		t_map;
 
 typedef struct s_game
@@ -45,7 +58,9 @@ void	check_map(t_game *game, char *file_map);
 //parse_input
 int		check_extension(char **argv);
 
-void	check_limits(t_game *game);
+void	line_edges(t_game *game);
+
+void	column_edges(t_game *game);
 
 void	check_entities(t_map map, char **filemap);
 
