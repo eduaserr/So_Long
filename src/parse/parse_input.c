@@ -6,11 +6,22 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/24 03:12:03 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/28 01:56:44 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+void	init_struct(t_game *game)
+{
+	game->map.length = 0;
+	game->map.width = 0;
+	game->map.player = 0;
+	game->map.exit = 0;
+	game->map.coin = 0;
+	game->map.floor = 0;
+	game->map.wall = 0;
+}
 
 int	check_extension(char **argv)
 {

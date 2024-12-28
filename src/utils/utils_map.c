@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 19:49:39 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/24 01:36:56 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/28 00:41:56 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,6 @@ void	ft_printmap(char **file_map) //borrar
 	i = 0;
 	while (file_map && file_map[i])
 		ft_printf("    %s\n", file_map[i++]);
-}
-
-void	ft_freemap(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
 }
 
 void	get_fullmatrixlen(char **map, int *y, int *x)

@@ -6,7 +6,7 @@
 #    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 16:02:10 by eduaserr          #+#    #+#              #
-#    Updated: 2024/12/24 02:22:41 by eduaserr         ###   ########.fr        #
+#    Updated: 2024/12/28 01:43:02 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,9 @@ LIBS	:= -L $(LIB) -lft -L $(LIBMLX)/build/ -lmlx42 -ldl -lglfw -pthread -lm
 
 ### SRC ###
 SRC		:= ./main.c
-SRCS	:= src/init/check_elements.c src/init/get_map.c\
+SRCS	:= src/init/check_elements.c src/init/get_map.c src/init/check_path.c\
 		src/parse/parse_input.c\
-		src/utils/utils_map.c
+		src/utils/utils_map.c src/utils/utils_free.c
 
 ### OBJ ###
 OBJS	:= ${SRCS:.c=.o} $(SRC:.c=.o)

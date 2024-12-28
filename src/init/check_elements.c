@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:05:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/24 03:16:22 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/28 02:03:53 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,21 +86,17 @@ void	check_entities(t_map *map, char **filemap)
 		}
 		i++;
 	}
-	if (map->player != 1 || map->exit != 1 || map->coin < 1 || map->floor < 1)
+	if (map->player != 1 || map->exit != 1 || map->coin < 1)
 	{
 		ft_freemap(filemap);
 		ft_error("Entities error\n");
 	}
 }
 
-void	player_pos(char **map, t_player *player_pos)
-{
-	(void)map;
-	(void)player_pos;
-}
-
 void	valid_path(t_game *game)
 {
-	(void)game;
-	player_pos(game->map.map, &game->map.player_pos);
+	player_pos(&game->map, game->map.map);
+	exit_pos(&game->map, game->map.map);
+	player_to_exit(&game->map, game->map.map);
+	coin_to_exit(&game->map);
 }

@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 16:44:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/28 02:17:25 by eduaserr         ###   ########.fr       */
+/*   Created: 2024/12/28 00:41:00 by eduaserr          #+#    #+#             */
+/*   Updated: 2024/12/28 00:42:50 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/so_long.h"
+#include "../inc/so_long.h"
 
-int	main(int argc, char **argv)
+void	ft_freegame(t_game *game)
 {
-	t_game	game;
+	if (!game)
+		return ;
+	ft_freemap(game->map.map);
+}
 
-	if (argc != 2 || check_extension(argv) == 1)
-		ft_error("Invalid arguments\n");
-	check_map(&game, argv[1]);
-	ft_printmap(game.map.map);
-	ft_freegame(&game);
-	return (0);
+void	ft_freemap(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }

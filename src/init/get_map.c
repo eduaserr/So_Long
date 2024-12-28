@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/24 03:16:51 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/28 00:48:16 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,11 @@ static void	check_elements(t_game *game)
 	column_edges(game);
 	check_entities(&game->map, game->map.map);
 	valid_path(game);
-	ft_printmap(game->map.map);
 }
 
 void	check_map(t_game *game, char *file_map)
 {
-	game->map.length = 0;
-	game->map.width = 0;
-	game->map.player = 0;
-	game->map.exit = 0;
-	game->map.coin = 0;
-	game->map.floor = 0;
-	game->map.wall = 0;
+	init_struct(game);
 	game->map.map = read_map(file_map);
 	get_fullmatrixlen(game->map.map, &game->map.length, &game->map.width);
 	check_elements(game);

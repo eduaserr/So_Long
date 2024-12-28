@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/24 03:15:58 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/28 02:14:50 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <stdbool.h>
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 # include "../lib/libft/libft.h"
+
+typedef struct s_exit
+{
+	int	y;
+	int	x;
+}		t_exit;
 
 typedef struct s_player
 {
@@ -36,6 +42,7 @@ typedef struct s_map
 	int			coin;
 	int			exit;
 	t_player	player_pos;
+	t_exit		exit_pos;
 }		t_map;
 
 typedef struct s_game
@@ -46,35 +53,45 @@ typedef struct s_game
 }		t_game;
 
 /*	INIT	*/
-//	get_map
-void	check_map(t_game *game, char *file_map);
-
-void	get_fullmatrixlen(char **map, int *y, int *x);
-
-/*	PARSE	*/
-//	parse_input
-int		check_extension(char **argv);
-
+//	check_elements
 void	line_edges(t_game *game);
 
 void	column_edges(t_game *game);
 
 void	check_entities(t_map *map, char **filemap);
 
-//	check_elements
-void	player_pos(char **map, t_player *player_pos);
-
 void	valid_path(t_game *game);
+//	check_path
+void	player_pos(t_map *map, char **filemap);
+
+void	exit_pos(t_map *map, char **filemap);
+
+void	player_to_exit(t_map *map, char **filemap);
+
+void	coin_to_exit(t_map *map);
+//	get_map
+void	check_map(t_game *game, char *file_map);
+
+/*	PARSE	*/
+//	parse_input
+int		check_extension(char **argv);
+
+void	init_struct(t_game *game);
+
 /*	UTILS	*/
+//	utils_free
+void	ft_freegame(t_game *game);
+
+void	ft_freemap(char **map);
 //	utils_map
 int		ft_strlen_sl(char *str);
 
 void	ft_error(char *str);
 
-void	printlines(char *str);
+void	printlines(char *str);//borrar
 
-void	ft_printmap(char **file_map);
+void	ft_printmap(char **file_map);//borrar
 
-void	ft_freemap(char **map);
+void	get_fullmatrixlen(char **map, int *y, int *x);
 
 #endif
