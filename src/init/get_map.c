@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/28 00:48:16 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/28 03:50:00 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,12 @@ void	check_map(t_game *game, char *file_map)
 {
 	init_struct(game);
 	game->map.map = read_map(file_map);
+	game->map.cpymap = ft_arrdup(game->map.map);
+	if (!game->map.cpymap)
+	{
+		ft_freegame(game);
+		ft_error("Unexpected error\n");
+	}
 	get_fullmatrixlen(game->map.map, &game->map.length, &game->map.width);
 	check_elements(game);
 }

@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/28 02:14:50 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/28 03:44:07 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_player
 typedef struct s_map
 {
 	char		**map;
+	char		**cpymap;
 	int			width;
 	int			length;
 	int			player;
@@ -66,7 +67,7 @@ void	player_pos(t_map *map, char **filemap);
 
 void	exit_pos(t_map *map, char **filemap);
 
-void	player_to_exit(t_map *map, char **filemap);
+void	player_to_exit(t_map *map, char **cpymap);
 
 void	coin_to_exit(t_map *map);
 //	get_map
@@ -93,5 +94,7 @@ void	printlines(char *str);//borrar
 void	ft_printmap(char **file_map);//borrar
 
 void	get_fullmatrixlen(char **map, int *y, int *x);
+
+char	**ft_arrdup(char **arr);
 
 #endif

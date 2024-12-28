@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 01:23:41 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/28 02:06:32 by eduaserr         ###   ########.fr       */
+/*   Updated: 2024/12/28 03:52:41 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,30 +56,30 @@ void	exit_pos(t_map *map, char **filemap)
 	}
 }
 
-/*static void	check_path()
+static bool	check_path(char **cpymap, int y, int x)
 {
-	
-}*/
+	if (!cpymap[y] || !cpymap[y][x])
+		return ;
+	if (cpymap[y][x] == '1' || cpymap[y][x] == 'V')
+		return ;
+	if (cpymap[y][x] == 'E')
+		return ;
+	if (cpymap[y][x] == '0')
+		cpymap[y][x] = 'V';
+	check_path(cpymap, y + 1, x);
+	check_path(cpymap, y - 1, x);
+	check_path(cpymap, y, x - 1);
+	check_path(cpymap, y, x + 1);
+}
 
-void	player_to_exit(t_map *map, char **filemap)
+void	player_to_exit(t_map *map, char **cpymap)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	while (filemap[i])
-	{
-		j = 1;
-		while ((filemap[i][j]) && i < (map->length - 1) && j < (map->width - 1))
-		{
-			if (i == map->player_pos.x && j == map->player_pos.y)
-			{
-				//check_path();
-			}
-			j++;
-		}
-		i++;
-	}
+	i = map->player_pos.y;
+	j = map->player_pos.x;
+	check_path(cpymap, i, j);
 }
 
 void	coin_to_exit(t_map *map)
