@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/28 03:44:07 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:00:48 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,6 @@ void	ft_printmap(char **file_map);//borrar
 
 void	get_fullmatrixlen(char **map, int *y, int *x);
 
-char	**ft_arrdup(char **arr);
+char	**ft_arrdup(char **arr, int width, int lenght);
 
 #endif

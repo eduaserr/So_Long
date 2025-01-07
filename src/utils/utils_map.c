@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 19:49:39 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/28 03:35:10 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:00:58 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,16 @@ void	get_fullmatrixlen(char **map, int *y, int *x)
 	}
 }
 
-char	**ft_arrdup(char **arr)
+char	**ft_arrdup(char **arr, int width, int lenght)
 {
 	char	**dup;
 	int		i;
-	int		len;
 
 	i = 0;
-	len = ft_strlen(arr[i]);
-	dup = (char **)malloc(sizeof(char *) * (len + 1));
+	dup = (char **)malloc(sizeof(char *) * (width + 1));
 	if (!dup)
 		return (NULL);
-	while (i < len)
+	while (i < lenght)
 	{
 		dup[i] = ft_strdup(arr[i]);
 		if (!dup)

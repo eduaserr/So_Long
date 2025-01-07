@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_path.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 01:23:41 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/28 03:52:41 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:46:52 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	exit_pos(t_map *map, char **filemap)
 	}
 }
 
-static bool	check_path(char **cpymap, int y, int x)
+static void	check_path(char **cpymap, int y, int x)
 {
 	if (!cpymap[y] || !cpymap[y][x])
 		return ;

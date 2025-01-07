@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
+#    By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/12 14:05:06 by eduaserr          #+#    #+#              #
-#    Updated: 2024/12/22 03:08:39 by eduaserr         ###   ########.fr        #
+#    Updated: 2025/01/07 19:17:56 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ CC	= clang
 CFLAGS	= -Wall -Wextra -Werror -g
 RM	= rm -f
 AR	= ar rcs
-RANLIB	= ranlib
 
 ### SRCS ###
 SRCS	= func/ft_isalnum.c func/ft_isalpha.c func/ft_isascii.c func/ft_isdigit.c func/ft_isprint.c func/ft_isspace.c func/ft_toupper.c func/ft_tolower.c func/ft_putchar_fd.c func/ft_putnbr_fd.c func/ft_putstr_fd.c func/ft_putendl_fd.c\
