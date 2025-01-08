@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/07 17:01:53 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/08 19:03:00 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static char	*get_line(int fd)
 	line = get_next_line(fd);
 	if (!line)
 	{
-		free(line);
 		ft_error("Empty map error\n");
 	}
 	size_line = ft_strlen_sl(line);
@@ -52,6 +51,11 @@ static char	**read_map(char *file_map)
 	if (fd < 0)
 		ft_error("Open fd error\n");
 	superline = get_line(fd);
+	if (superline[0] == '\n')
+	{
+		free(superline);
+		ft_error("Line error\n");
+	}
 	close(fd);
 	map = ft_split(superline, '\n');
 	free(superline);
