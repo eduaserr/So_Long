@@ -77,7 +77,7 @@ static char	**read_map(char *file_map)
 	len = 0;
 	fd = open(file_map, O_RDONLY);
 	if (fd < 0)
-		ft_error("Open fd error\n");
+		ft_error("Open fd error");
 	superline = get_line(fd, &len);
 	close(fd);
 	map = check_superline(superline, len);
@@ -102,7 +102,7 @@ void	check_map(t_game *game, char *file_map)
 	if (!game->map.cpymap)
 	{
 		ft_freegame(game);
-		ft_error("Unexpected error\n");
+		ft_error("Unexpected error");
 	}
 	check_elements(game);
 }

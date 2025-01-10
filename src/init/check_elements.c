@@ -27,7 +27,7 @@ void	line_edges(t_game *game)
 		{
 			ft_freemap(game->map.cpymap);
 			ft_freemap(game->map.map);
-			ft_error("Map must be surrounded by walls\n");
+			ft_error("Map must be surrounded by walls");
 		}
 	}
 }
@@ -47,7 +47,7 @@ void	column_edges(t_game *game)
 		{
 			ft_freemap(game->map.cpymap);
 			ft_freemap(game->map.map);
-			ft_error("Map must be surrounded by walls\n");
+			ft_error("Map must be surrounded by walls");
 		}
 	}
 }
@@ -67,7 +67,7 @@ static void	count_entities(t_map *map, char **filemap, int i, int j)
 	else
 	{
 		ft_freemap(filemap);
-		ft_error("invalid entities map error\n");
+		ft_error("invalid entities map error");
 	}
 }
 
@@ -92,7 +92,7 @@ void	check_entities(t_map *map, char **filemap)
 	{
 		ft_freemap(map->cpymap);
 		ft_freemap(filemap);
-		ft_error("Entities error\n");
+		ft_error("Entities error");
 	}
 }
 
