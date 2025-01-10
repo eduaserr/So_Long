@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/07 17:00:48 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:51:39 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <stdbool.h>
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 # include "../lib/libft/libft.h"
+
+// agregar path to coin para comprobar que tienes acceso a todas
+// agregar .gitignore a so_long (copiar de submodulo libft)
 
 typedef struct s_exit
 {
@@ -95,6 +98,6 @@ void	ft_printmap(char **file_map);//borrar
 
 void	get_fullmatrixlen(char **map, int *y, int *x);
 
-char	**ft_arrdup(char **arr, int width, int lenght);
+char	**ft_arrdup(char **arr);
 
 #endif
