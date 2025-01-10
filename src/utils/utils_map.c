@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 19:49:39 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/07 17:00:58 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:54:03 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,18 @@ void	get_fullmatrixlen(char **map, int *y, int *x)
 	}
 }
 
-char	**ft_arrdup(char **arr, int width, int lenght)
+char	**ft_arrdup(char **arr)
 {
 	char	**dup;
 	int		i;
+	int		width;
 
 	i = 0;
+	width = ft_strlen(arr[0]);
 	dup = (char **)malloc(sizeof(char *) * (width + 1));
 	if (!dup)
 		return (NULL);
-	while (i < lenght)
+	while (arr[i])
 	{
 		dup[i] = ft_strdup(arr[i]);
 		if (!dup)
