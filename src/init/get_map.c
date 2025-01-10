@@ -46,7 +46,7 @@ static char	**check_superline(char *superline, int len)
 	int len_current;
 	
 	if (!superline || !superline[0])
-		return (free(superline), ft_error("Empty map"), NULL);
+		return (free(superline), ft_error("Empty map error"), NULL);
 	map = ft_split(superline, '\n');
 	i = 0;
 	if (map)
@@ -57,12 +57,12 @@ static char	**check_superline(char *superline, int len)
 	{
 		len_current = ft_strlen(map[i]);
 		if (len_check != len_current)
-			return (free(superline), ft_freemap(map), ft_error("Map not rectangular"), NULL);
+			return (free(superline), ft_freemap(map), ft_error("Invalid size error"), NULL);
 	}
 	if (i > 0 && ft_strlen(map[i]) == 0)
 		len--;
 	if (len != i)
-		return (ft_freemap(map), free(superline), ft_error("Empty line"), NULL);
+		return (ft_freemap(map), free(superline), ft_error("Empty line error"), NULL);
 	return (map);
 }
 

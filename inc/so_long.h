@@ -88,8 +88,6 @@ void	ft_freegame(t_game *game);
 
 void	ft_freemap(char **map);
 //	utils_map
-int		ft_strlen_sl(char *str);
-
 void	ft_error(char *str);
 
 void	printlines(char *str);//borrar

@@ -12,21 +12,9 @@
 
 #include "../../inc/so_long.h"
 
-int	ft_strlen_sl(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i] != '\0' && str[i] != '\n')
-		i++;
-	return (i);
-}
-
 void	ft_error(char *str)
 {
-	ft_printf(str);
+	ft_printf("%s\n", str);
 	exit(EXIT_FAILURE);
 }
 
