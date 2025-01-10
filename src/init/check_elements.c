@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_elements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:05:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2024/12/28 03:39:19 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:40:43 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ void	line_edges(t_game *game)
 			i++;
 		else
 		{
+			ft_freemap(game->map.cpymap);
 			ft_freemap(game->map.map);
-			ft_error("Map must has to be surrounded by walls\n");
+			ft_error("Map must be surrounded by walls\n");
 		}
 	}
 }
@@ -44,8 +45,9 @@ void	column_edges(t_game *game)
 			i++;
 		else
 		{
+			ft_freemap(game->map.cpymap);
 			ft_freemap(game->map.map);
-			ft_error("Map must has to be surrounded by walls\n");
+			ft_error("Map must be surrounded by walls\n");
 		}
 	}
 }
@@ -88,6 +90,7 @@ void	check_entities(t_map *map, char **filemap)
 	}
 	if (map->player != 1 || map->exit != 1 || map->coin < 1)
 	{
+		ft_freemap(map->cpymap);
 		ft_freemap(filemap);
 		ft_error("Entities error\n");
 	}
