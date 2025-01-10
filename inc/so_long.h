@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/10 16:51:39 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:58:39 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	exit_pos(t_map *map, char **filemap);
 
 void	player_to_exit(t_map *map, char **cpymap);
 
-void	coin_to_exit(t_map *map);
+void	exit_to_coin(t_map *map);
 //	get_map
 void	check_map(t_game *game, char *file_map);
 
