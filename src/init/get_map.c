@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/10 16:44:03 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/13 16:29:53 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static char	**read_map(char *file_map)
 	return (map);
 }
 
-static void	check_elements(t_game *game)
+void	check_elements(t_game *game)
 {
 	line_edges(game);
 	column_edges(game);
@@ -93,7 +93,7 @@ static void	check_elements(t_game *game)
 	valid_path(game);
 }
 
-void	check_map(t_game *game, char *file_map)
+void	get_map(t_game *game, char *file_map)
 {
 	init_struct(game);
 	game->map.map = read_map(file_map);
@@ -104,5 +104,4 @@ void	check_map(t_game *game, char *file_map)
 		ft_freegame(game);
 		ft_error("Unexpected error");
 	}
-	check_elements(game);
 }
