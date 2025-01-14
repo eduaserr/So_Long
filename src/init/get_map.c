@@ -6,13 +6,13 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/14 14:45:13 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:17:54 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-static char *get_line(int fd, int *len)
+static char	*get_line(int fd, int *len)
 {
 	char	*superline;
 	char	*line;
@@ -23,7 +23,7 @@ static char *get_line(int fd, int *len)
 	line = get_next_line(fd);
 	if (line)
 		size_line = ft_strlen(line);
-	if (size_line)
+	if (size_line != 0)
 		*len = 1;
 	while (line)
 	{
@@ -38,7 +38,7 @@ static char *get_line(int fd, int *len)
 }
 
 static char	**check_superline(char *superline, int len)
-{	
+{
 	char	**map;
 	int		i;
 	int		len_check;
@@ -55,12 +55,14 @@ static char	**check_superline(char *superline, int len)
 	{
 		len_current = ft_strlen(map[i]);
 		if (len_check != len_current)
-			return (free(superline), ft_freemap(map), ft_error("Invalid size error"), NULL);
+			return (free(superline), ft_freemap(map),
+				ft_error("Invalid size error"), NULL);
 	}
 	if (i > 0 && ft_strlen(map[i]) == 0)
 		len--;
 	if (len != i)
-		return (ft_freemap(map), free(superline), ft_error("Empty line error"), NULL);
+		return (ft_freemap(map), free(superline),
+			ft_error("Empty line error"), NULL);
 	return (map);
 }
 
