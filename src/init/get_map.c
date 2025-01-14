@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/14 17:17:54 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/14 19:16:58 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ static char	*get_line(int fd, int *len)
 	line = get_next_line(fd);
 	if (line)
 		size_line = ft_strlen(line);
-	if (size_line != 0)
-		*len = 1;
 	while (line)
 	{
 		*len += 1;
@@ -48,7 +46,7 @@ static char	**check_superline(char *superline, int len)
 		return (free(superline), ft_error("Empty map or line error"), NULL);
 	map = ft_split(superline, '\n');
 	if (!map)
-		return (free(superline), ft_error("Only newlines, empty map"), NULL);
+		return (free(superline), ft_error("Split map error"), NULL);
 	i = 0;
 	len_check = ft_strlen(map[i]);
 	while (map[++i])
@@ -58,9 +56,7 @@ static char	**check_superline(char *superline, int len)
 			return (free(superline), ft_freemap(map),
 				ft_error("Invalid size error"), NULL);
 	}
-	if (i > 0 && ft_strlen(map[i]) == 0)
-		len--;
-	if (len != i)
+	if (i > 0 && ft_strlen(map[i]) == 0 && len != i)
 		return (ft_freemap(map), free(superline),
 			ft_error("Empty line error"), NULL);
 	return (map);
@@ -85,14 +81,6 @@ static char	**read_map(char *file_map)
 	return (map);
 }
 
-void	check_elements(t_game *game)
-{
-	line_edges(game);
-	column_edges(game);
-	check_entities(&game->map, game->map.map);
-	valid_path(game);
-}
-
 void	get_map(t_game *game, char *file_map)
 {
 	init_struct(game);
@@ -104,4 +92,12 @@ void	get_map(t_game *game, char *file_map)
 		ft_freegame(game);
 		ft_error("Unexpected error");
 	}
+}
+
+void	check_elements(t_game *game)
+{
+	line_edges(game);
+	column_edges(game);
+	check_entities(&game->map, game->map.map);
+	valid_path(game);
 }

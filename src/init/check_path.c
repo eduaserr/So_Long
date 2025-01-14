@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 01:23:41 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/10 17:10:22 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/14 19:04:12 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ void	exit_pos(t_map *map, char **filemap)
 	}
 }
 
-static int	check_path(char **cpymap, int y, int x)
+static int	path_to_exit(char **cpymap, int y, int x)
 {
-	if (y < 0 || x < 0 || !cpymap[y] || !cpymap[y][x]) // cambiar
+	if (y < 0 || x < 0 || !cpymap || !cpymap[y])
 		return (0);
 	if (cpymap[y][x] == '1' || cpymap[y][x] == 'V')
 		return (0);
@@ -66,8 +66,8 @@ static int	check_path(char **cpymap, int y, int x)
 		return (1);
 	if (cpymap[y][x] == '0' || cpymap[y][x] == 'C')
 		cpymap[y][x] = 'V';
-	if (check_path(cpymap, y + 1, x) || check_path(cpymap, y - 1, x)
-		|| check_path(cpymap, y, x - 1) || check_path(cpymap, y, x + 1))
+	if (path_to_exit(cpymap, y + 1, x) || path_to_exit(cpymap, y - 1, x)
+		|| path_to_exit(cpymap, y, x - 1) || path_to_exit(cpymap, y, x + 1))
 		return (1);
 	return (0);
 }
@@ -79,7 +79,7 @@ void	player_to_exit(t_map *map, char **cpymap)
 
 	i = map->player_pos.y;
 	j = map->player_pos.x;
-	if (!check_path(cpymap, i, j))
+	if (!path_to_exit(cpymap, i, j))
 		ft_error("Player cannot reach the exit"); // primero libera
 }
 
