@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/13 16:29:53 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:45:13 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@ static char *get_line(int fd, int *len)
 	char	*line;
 	int		size_line;
 
+	size_line = 0;
 	superline = NULL;
 	line = get_next_line(fd);
-	if (!line)
-		size_line = 0;
-	else
+	if (line)
 		size_line = ft_strlen(line);
 	if (size_line)
 		*len = 1;
@@ -40,19 +39,18 @@ static char *get_line(int fd, int *len)
 
 static char	**check_superline(char *superline, int len)
 {	
-	char **map;
-	int	i;
-	int len_check;
-	int len_current;
-	
-	if (!superline || !superline[0])
-		return (free(superline), ft_error("Empty map error"), NULL);
+	char	**map;
+	int		i;
+	int		len_check;
+	int		len_current;
+
+	if (!superline || !superline[0] || superline[0] == '\n')
+		return (free(superline), ft_error("Empty map or line error"), NULL);
 	map = ft_split(superline, '\n');
-	i = 0;
-	if (map)
-		len_check = ft_strlen(map[i]);
-	else
+	if (!map)
 		return (free(superline), ft_error("Only newlines, empty map"), NULL);
+	i = 0;
+	len_check = ft_strlen(map[i]);
 	while (map[++i])
 	{
 		len_current = ft_strlen(map[i]);
