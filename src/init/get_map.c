@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/14 19:16:58 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/16 18:04:50 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	get_map(t_game *game, char *file_map)
 	if (!game->map.cpymap)
 	{
 		ft_freegame(game);
-		ft_error("Unexpected error");
+		ft_error("Unexpected arrdup error");
 	}
 }
 
@@ -99,5 +99,5 @@ void	check_elements(t_game *game)
 	line_edges(game);
 	column_edges(game);
 	check_entities(&game->map, game->map.map);
-	valid_path(game);
+	valid_path(game, &game->map);
 }

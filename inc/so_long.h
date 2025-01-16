@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/14 19:20:47 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/16 18:12:07 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 # include "../lib/libft/libft.h"
 
-// agregar path to coin para comprobar que tienes acceso a todas
 // agregar .gitignore a so_long (copiar de submodulo libft)
 
 typedef struct s_exit
@@ -64,15 +63,13 @@ void	column_edges(t_game *game);
 
 void	check_entities(t_map *map, char **filemap);
 
-void	valid_path(t_game *game);
+void	valid_path(t_game *game, t_map *map);
 //	check_path
 void	player_pos(t_map *map, char **filemap);
 
 void	exit_pos(t_map *map, char **filemap);
 
-void	player_to_exit(t_map *map, char **cpymap);
-
-void	exit_to_coin(t_map *map);
+int		check_path(t_map *map, char **cpymap, int y, int x);
 //	get_map
 void	get_map(t_game *game, char *file_map);
 

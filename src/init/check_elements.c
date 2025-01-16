@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:05:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/10 16:59:09 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/16 18:05:26 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	line_edges(t_game *game)
 			i++;
 		else
 		{
-			ft_freemap(game->map.cpymap);
-			ft_freemap(game->map.map);
+			ft_freegame(game);
 			ft_error("Map must be surrounded by walls");
 		}
 	}
@@ -45,8 +44,7 @@ void	column_edges(t_game *game)
 			i++;
 		else
 		{
-			ft_freemap(game->map.cpymap);
-			ft_freemap(game->map.map);
+			ft_freegame(game);
 			ft_error("Map must be surrounded by walls");
 		}
 	}
@@ -67,6 +65,7 @@ static void	count_entities(t_map *map, char **filemap, int i, int j)
 	else
 	{
 		ft_freemap(filemap);
+		ft_freemap(map->cpymap);
 		ft_error("invalid entities map error");
 	}
 }
@@ -90,16 +89,26 @@ void	check_entities(t_map *map, char **filemap)
 	}
 	if (map->player != 1 || map->exit != 1 || map->coin < 1)
 	{
-		ft_freemap(map->cpymap);
 		ft_freemap(filemap);
-		ft_error("Entities error");
+		ft_freemap(map->cpymap);
+		ft_error("Entities count error");
 	}
 }
 
-void	valid_path(t_game *game)
+void	valid_path(t_game *game, t_map *map)
 {
-	player_pos(&game->map, game->map.map);
-	exit_pos(&game->map, game->map.map);
-	player_to_exit(&game->map, game->map.cpymap);
-	exit_to_coin(&game->map);
+	player_pos(map, map->map);
+	exit_pos(map, map->map);
+	if (!check_path(map, map->cpymap, map->exit_pos.y, map->exit_pos.x))
+	{
+		ft_freegame(game);
+		ft_error("Checking path error");
+	}
+	ft_freemap(map->cpymap);
+	map->cpymap = ft_arrdup(map->map);
+	if (!map->cpymap)
+	{
+		ft_freegame(game);
+		ft_error("Unexpected arrdup error");
+	}
 }
