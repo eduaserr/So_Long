@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:05:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/16 18:05:26 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/17 13:48:43 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,12 @@ void	valid_path(t_game *game, t_map *map)
 {
 	player_pos(map, map->map);
 	exit_pos(map, map->map);
-	if (!check_path(map, map->cpymap, map->exit_pos.y, map->exit_pos.x))
+	if (!check_path(map, map->cpymap, map->player_pos.y, map->player_pos.x))
 	{
 		ft_freegame(game);
-		ft_error("Checking path error");
+		if (map->coin != 0)
+			ft_error("Checking path error, unreachable coins");
+		ft_error("Checking path error, unreachable exit");
 	}
 	ft_freemap(map->cpymap);
 	map->cpymap = ft_arrdup(map->map);
