@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/16 18:12:07 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:56:26 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	ft_freemap(char **map);
 //	utils_map
 void	ft_error(char *str);
 
-void	printlines(char *str);//borrar
+void	ft_printlines(char *str);//borrar
 
 void	ft_printmap(char **file_map);//borrar
 

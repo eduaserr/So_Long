@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 19:49:39 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/10 16:54:03 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:56:11 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_error(char *str)
 {
-	ft_printf("%s\n", str);
+	ft_printf("\x1b[31m%s\x1B[37m%s\n","Error : " ,str);
 	exit(EXIT_FAILURE);
 }
 
-void	printlines(char *str) //borrar
+void	ft_printlines(char *str) //borrar
 {
 	if (str)
 		ft_printf("line --> %s\n", str);
