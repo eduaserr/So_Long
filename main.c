@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:44:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/20 17:57:09 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:34:42 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(int argc, char **argv)
 	get_map(&game, argv[1]);
 	check_elements(&game);
 	ft_printmap(game.map.map);
+	ft_printf("---------------\n");
+	ft_printf("------WIN------\n");
 	ft_printf("---------------\n");
 	ft_freegame(&game);
 	return (0);

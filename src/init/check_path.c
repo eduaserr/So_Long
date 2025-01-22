@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 01:23:41 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/20 20:03:43 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:36:31 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ void	exit_pos(t_map *map, char **filemap)
 
 int	check_path(t_map *map, char **cpymap, int y, int x)
 {
-	ft_printf("---------%c----------\n", cpymap[y][x]);
-	ft_printmap(cpymap);
 	if (!cpymap || y < 0 || x < 0 || !cpymap[y] || !cpymap[y][x])
 		return (0);
 	if (cpymap[y][x] == '1' || cpymap[y][x] == 'V')
