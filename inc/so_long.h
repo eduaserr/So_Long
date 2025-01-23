@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/23 18:08:48 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/23 20:19:48 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ typedef struct s_player
 typedef struct s_img
 {
 	void	*floor;
-	void	*walls;
+	mlx_texture_t	*walls;
+	mlx_image_t		*iwalls;
 	void	*coins;
 	void	*exit;
 	void	*player;
