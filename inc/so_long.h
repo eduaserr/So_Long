@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/22 18:57:17 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:08:48 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,15 @@ typedef struct s_player
 	int	x;
 }		t_player;
 
+typedef struct s_img
+{
+	void	*floor;
+	void	*walls;
+	void	*coins;
+	void	*exit;
+	void	*player;
+}		t_img;
+
 typedef struct s_map
 {
 	char		**map;
@@ -49,6 +58,7 @@ typedef struct s_game
 {
 	void	*mlx;
 	void	*window;
+	t_img	images;
 	t_map	map;
 }		t_game;
 

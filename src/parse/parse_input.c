@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/22 18:57:22 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:13:50 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ void	init_struct(t_game *game)
 	game->map.coin = 0;
 	game->map.floor = 0;
 	game->map.wall = 0;
+	game->images.floor = NULL;
+	game->images.walls = NULL;
+	game->images.coins = NULL;
+	game->images.player = NULL;
+	game->images.exit = NULL;
 }
 
 int	check_extension(char **argv)
