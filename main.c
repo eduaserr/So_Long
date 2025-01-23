@@ -12,6 +12,14 @@
 
 #include "./inc/so_long.h"
 
+
+static void ft_hook(void* param)
+{
+	const mlx_t* mlx = param;
+
+	ft_printf("WIDTH: %d | HEIGHT: %d\n", mlx->width, mlx->height);
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	game;
@@ -21,6 +29,12 @@ int	main(int argc, char **argv)
 	get_map(&game, argv[1]);
 	check_elements(&game);
 	ft_printmap(game.map.map);
+	game.mlx = mlx_init(game.map.width * 64, game.map.length * 64, "So_long", true);
+	if (!game.mlx)
+		ft_error("Mlx init error");
+	mlx_loop_hook(game.mlx, ft_hook, game.mlx);
+	mlx_loop(game.mlx);
+	mlx_terminate(game.mlx);
 	ft_printf("---------------\n");
 	ft_printf("------WIN------\n");
 	ft_printf("---------------\n");

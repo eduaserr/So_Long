@@ -16,13 +16,9 @@ static char	*get_line(int fd, int *len)
 {
 	char	*superline;
 	char	*line;
-	int		size_line;
 
-	size_line = 0;
 	superline = NULL;
 	line = get_next_line(fd);
-	if (line)
-		size_line = ft_strlen(line);
 	while (line)
 	{
 		*len += 1;
