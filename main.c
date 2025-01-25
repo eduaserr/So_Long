@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:44:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/23 20:37:33 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/25 20:07:43 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,6 @@
 		//nº de veces que se pulsa una tecla de moverse W,A,S,D
 	//ft_printf("WIDTH: %d | HEIGHT: %d\n", mlx->width, mlx->height);
 } */
-void	ft_load_png(t_txture *txture, t_game *game)
-{
-	txture->coins = mlx_load_png("sprites/coin01.png");
-	txture->exit = mlx_load_png("sprites/exit.png");
-	if (!txture->coins || !txture->exit)
-	{
-		ft_freegame(game);
-		ft_error("load img error1");
-	}
-	txture->floor = mlx_load_png("sprites/floor01.png");
-	txture->player = mlx_load_png("sprites/player_down01.png");
-	if (!txture->floor || !txture->player)
-	{
-		ft_freegame(game);
-		ft_error("load img error2");
-	}
-	txture->walls = mlx_load_png("sprites/wall03.png");
-	if (!txture->walls)
-	{
-		ft_freegame(game);
-		ft_error("load img error3");
-	}
-}
 
 int	main(int argc, char **argv)
 {
@@ -53,26 +30,14 @@ int	main(int argc, char **argv)
 		ft_error("Invalid arguments");
 	get_map(&game, argv[1]);
 	check_elements(&game);
+
+	process_images(&game, &game.images, &game.txture);
+	//mlx_delete_image();
+
 	ft_printmap(game.map.map);
-
-	ft_load_png(&game.txture, &game);
-
 	ft_printf("WIDTH: %d | HEIGHT: %d\n", game.map.width, game.map.length);
-	game.mlx = mlx_init(game.map.width * 64, game.map.length * 64, "So_long", false);
-	if (!game.mlx)
-	{
-		ft_freegame(&game);
-		ft_error("Mlx init error");
-	}
 
-	game.images.walls = mlx_texture_to_image(game.mlx, game.txture.walls);
-	//img = mlx_new_image(game.mlx, game.map.width * 64, game.map.length * 64);
-/* 	if (!img)
-	{
-		ft_freegame(&game);
-		ft_error("load img error");
-	}
-	 */
+// función para poner una imagen en la ventana
 	int y;
 	int x;
 	y = 0;
@@ -86,7 +51,7 @@ int	main(int argc, char **argv)
         }
 		y++;
     }
-	//mlx_image_to_window(game.mlx, img, 0, 0);
+	//mlx_image_to_window(game.mlx, game.images.walls, 0, 0);
 
 	//mlx_loop_hook(game.mlx, ft_hook, game.mlx);
 	//mlx_key_hook(game.mlx,);
