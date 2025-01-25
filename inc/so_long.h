@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/23 20:19:48 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/25 18:41:20 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,17 +87,22 @@ void	player_pos(t_map *map, char **filemap);
 void	exit_pos(t_map *map, char **filemap);
 
 int		check_path(t_map *map, char **cpymap, int y, int x);
+/*	PARSE	*/
 //	get_map
 void	get_map(t_game *game, char *file_map);
 
 void	check_elements(t_game *game);
-/*	PARSE	*/
 //	parse_input
 void	init_struct(t_game *game);
 
 int		check_extension(char **argv);
+/*	MLX	*/
+//	mlx_init
+void	process_images(t_game *game, t_img *images, t_txture *txture);
 /*	UTILS	*/
 //	utils_free
+void	ft_free_mlx(t_game *game);
+
 void	ft_freegame(t_game *game);
 
 void	ft_freemap(char **map);

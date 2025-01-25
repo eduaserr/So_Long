@@ -6,12 +6,12 @@
 #    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 16:02:10 by eduaserr          #+#    #+#              #
-#    Updated: 2024/12/28 01:43:02 by eduaserr         ###   ########.fr        #
+#    Updated: 2025/01/25 20:08:20 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### COMPILATION ###
-NAME	:= Game
+NAME	:= So_Long
 CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast -g
 LIBMLX	:= ./lib/MLX42
 LIB		:= ./lib/libft
@@ -21,8 +21,9 @@ LIBS	:= -L $(LIB) -lft -L $(LIBMLX)/build/ -lmlx42 -ldl -lglfw -pthread -lm
 
 ### SRC ###
 SRC		:= ./main.c
-SRCS	:= src/init/check_elements.c src/init/get_map.c src/init/check_path.c\
-		src/parse/parse_input.c\
+SRCS	:= src/init/check_elements.c src/init/check_path.c\
+		src/parse/parse_input.c src/parse/get_map.c\
+		src/mlx/mlx_init.c\
 		src/utils/utils_map.c src/utils/utils_free.c
 
 ### OBJ ###
