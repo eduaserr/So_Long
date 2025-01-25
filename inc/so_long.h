@@ -32,13 +32,21 @@ typedef struct s_player
 
 typedef struct s_img
 {
-	void	*floor;
-	mlx_texture_t	*walls;
-	mlx_image_t		*iwalls;
-	void	*coins;
-	void	*exit;
-	void	*player;
+	mlx_image_t	*floor;
+	mlx_image_t	*walls;
+	mlx_image_t	*coins;
+	mlx_image_t	*exit;
+	mlx_image_t	*player;
 }		t_img;
+
+typedef struct s_txture
+{
+	mlx_texture_t	*floor;
+	mlx_texture_t	*walls;
+	mlx_texture_t	*coins;
+	mlx_texture_t	*exit;
+	mlx_texture_t	*player;
+}		t_txture;
 
 typedef struct s_map
 {
@@ -57,10 +65,11 @@ typedef struct s_map
 
 typedef struct s_game
 {
-	void	*mlx;
-	void	*window;
-	t_img	images;
-	t_map	map;
+	void		*mlx;
+	void		*window;
+	t_img		images;
+	t_txture	txture;
+	t_map		map;
 }		t_game;
 
 /*	INIT	*/

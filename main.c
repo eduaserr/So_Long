@@ -21,11 +21,33 @@
 		//nº de veces que se pulsa una tecla de moverse W,A,S,D
 	//ft_printf("WIDTH: %d | HEIGHT: %d\n", mlx->width, mlx->height);
 } */
+void	ft_load_png(t_txture *txture, t_game *game)
+{
+	txture->coins = mlx_load_png("sprites/coin01.png");
+	txture->exit = mlx_load_png("sprites/exit.png");
+	if (!txture->coins || !txture->exit)
+	{
+		ft_freegame(game);
+		ft_error("load img error1");
+	}
+	txture->floor = mlx_load_png("sprites/floor01.png");
+	txture->player = mlx_load_png("sprites/player_down01.png");
+	if (!txture->floor || !txture->player)
+	{
+		ft_freegame(game);
+		ft_error("load img error2");
+	}
+	txture->walls = mlx_load_png("sprites/wall03.png");
+	if (!txture->walls)
+	{
+		ft_freegame(game);
+		ft_error("load img error3");
+	}
+}
 
 int	main(int argc, char **argv)
 {
 	t_game		game;
-	//mlx_image_t	*img;
 
 	if (argc != 2 || check_extension(argv) == 1)
 		ft_error("Invalid arguments");
@@ -33,13 +55,8 @@ int	main(int argc, char **argv)
 	check_elements(&game);
 	ft_printmap(game.map.map);
 
+	ft_load_png(&game.txture, &game);
 
-	game.images.walls = mlx_load_png("images/rock01.png");
-	if (!game.images.walls)
-	{
-		ft_freegame(&game);
-		ft_error("load img error");
-	}
 	ft_printf("WIDTH: %d | HEIGHT: %d\n", game.map.width, game.map.length);
 	game.mlx = mlx_init(game.map.width * 64, game.map.length * 64, "So_long", false);
 	if (!game.mlx)
@@ -48,7 +65,7 @@ int	main(int argc, char **argv)
 		ft_error("Mlx init error");
 	}
 
-	game.images.iwalls = mlx_texture_to_image(game.mlx, game.images.walls);
+	game.images.walls = mlx_texture_to_image(game.mlx, game.txture.walls);
 	//img = mlx_new_image(game.mlx, game.map.width * 64, game.map.length * 64);
 /* 	if (!img)
 	{
@@ -64,7 +81,7 @@ int	main(int argc, char **argv)
 		x = 0;
         while (x < game.map.width)
         {
-            mlx_image_to_window(game.mlx, game.images.iwalls, x * 64, y * 64);
+            mlx_image_to_window(game.mlx, game.images.walls, x * 64, y * 64);
 			x++;
         }
 		y++;
@@ -72,6 +89,7 @@ int	main(int argc, char **argv)
 	//mlx_image_to_window(game.mlx, img, 0, 0);
 
 	//mlx_loop_hook(game.mlx, ft_hook, game.mlx);
+	//mlx_key_hook(game.mlx,);
 	mlx_loop(game.mlx);
 	mlx_terminate(game.mlx);
 	ft_printf("---------------\n");
