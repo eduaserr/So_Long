@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:41:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/25 20:07:01 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/26 02:01:27 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,26 @@
 		mlx_delete_texture(textures->walls);
 }
 
-/*static void	ft_free_images(t_img *images)
+static void	ft_free_images(t_game *game, t_img *images)
 {
 	if (images->coins)
-		mlx_delete_image(images->coins);
+		mlx_delete_image(game->mlx, images->coins);
 	if (images->exit)
-		mlx_delete_image(images->exit);
+		mlx_delete_image(game->mlx, images->exit);
 	if (images->floor)
-		mlx_delete_image(images->floor);
+		mlx_delete_image(game->mlx, images->floor);
 	if (images->player)
-		mlx_delete_image(images->player);
+		mlx_delete_image(game->mlx, images->player);
 	if (images->walls)
-		mlx_delete_image(images->walls);
-}*/
+		mlx_delete_image(game->mlx, images->walls);
+}
 
 void	ft_free_mlx(t_game *game)
 {
 	if (!game)
 		return;
 	ft_free_textures(&game->txture);
-	//ft_free_images(&game->images);
+	ft_free_images(game, &game->images);
 }
 
 void	ft_freegame(t_game *game)
