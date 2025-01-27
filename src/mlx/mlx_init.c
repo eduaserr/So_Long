@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:01:29 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/27 03:26:12 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/27 04:34:32 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 
 static void	ft_load_png(t_txture *txture, t_game *game)
 {
-	txture->coins = mlx_load_png("sprites/coin01.png");
-	txture->exit = mlx_load_png("sprites/exit.png");
-	if (!txture->coins || !txture->exit)
+	if (((txture->coins = mlx_load_png("sprites/coin01.png")) == NULL)
+		|| ((txture->exit = mlx_load_png("sprites/exit.png")) == NULL))
 	{
 		ft_freegame(game);
 		ft_error("load img error1");
 	}
-	txture->floor = mlx_load_png("sprites/floor01.png");
-	txture->player = mlx_load_png("sprites/player_down01.png");
-	if (!txture->floor || !txture->player)
+	if (((txture->floor = mlx_load_png("sprites/floor01.png")) == NULL)
+		|| ((txture->walls = mlx_load_png("sprites/wall03.png")) == NULL))
 	{
 		ft_freegame(game);
 		ft_error("load img error2");
 	}
-	txture->walls = mlx_load_png("sprites/wall03.png");
-	if (!txture->walls)
+	if (!(txture->player = mlx_load_png("sprites/player_down01.png")))
 	{
 		ft_freegame(game);
 		ft_error("load img error3");
