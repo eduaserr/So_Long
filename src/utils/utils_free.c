@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:41:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/26 02:01:27 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/27 17:25:54 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ void	ft_freegame(t_game *game)
 		return ;
 	ft_freemap(game->map.map);
 	if (!game->map.cpymap)
-	return ;
+		return ;
 	ft_freemap(game->map.cpymap);
-	if (&game->images || &game->txture)
-		ft_free_mlx(game);
+	ft_free_mlx(game);
+	mlx_terminate(game->mlx);
 }
 
 void	ft_freemap(char **map)

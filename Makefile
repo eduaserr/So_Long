@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
+#    By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 16:02:10 by eduaserr          #+#    #+#              #
-#    Updated: 2025/01/27 03:30:01 by eduaserr         ###   ########.fr        #
+#    Updated: 2025/01/27 16:01:44 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME	:= So_Long
 CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast -g
 LIBMLX	:= ./lib/MLX42
 LIB		:= ./lib/libft
+CC		:= clang
 
 HEADERS	:= -I ./inc -I $(LIBMLX)/include/MLX42
 LIBS	:= -L $(LIB) -lft -L $(LIBMLX)/build/ -lmlx42 -ldl -lglfw -pthread -lm
