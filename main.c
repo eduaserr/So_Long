@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:44:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/27 18:07:49 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/27 22:05:28 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,36 @@
 	//refresh_frames ,, frame rate
 	//mlx_image_to_window();
 } */
+/*void	move_player(t_game *game, char move)
+{
+	char pos;
 
-void	move_player()
-{}
+	pos = game->map.map[game->map.player_pos.y][game->map.player_pos.x];
+	if (pos == move)
+	{
+		mlx_image_to_window(game->mlx, game->images.player, game->map.player_pos.x * 64, (game->map.player_pos.y + 1) * 64);
+	}
+}*/
+
+void	move_player(t_game *game, char move)
+{
+	int	x;
+	int	y;
+
+	x = game->map.player_pos.x;
+	y = game->map.player_pos.y;
+	(void)move;
+
+	if (move == 'W')
+		mlx_image_to_window(game->mlx, game->images.player, x * 64, (y - 1) * 64);
+	if (move == 'A')
+		mlx_image_to_window(game->mlx, game->images.player, (x - 1) * 64, y * 64);
+	if (move == 'S')
+		mlx_image_to_window(game->mlx, game->images.player, x * 64, (y + 1) * 64);
+	if (move == 'D')
+		mlx_image_to_window(game->mlx, game->images.player, (x + 1) * 64, y * 64);
+	mlx_image_to_window(game->mlx, game->images.floor, x * 64, y * 64);
+}
 
 void	ft_key_hook(mlx_key_data_t key, void *param)
 {
@@ -34,20 +61,17 @@ void	ft_key_hook(mlx_key_data_t key, void *param)
 	{
 		mlx_close_window(game->mlx);
 		ft_freegame(game);
-		//ft_error("Exit . . .");
-		ft_printf("Exit . . .\n");
+		ft_printf("Exit . . .❌🔌\n");
 		exit(EXIT_SUCCESS);
 	}
-	/*
 	if (key.key == MLX_KEY_W && key.action == MLX_PRESS)
-		move_player(W);
+		move_player(game, 'W');
 	if (key.key == MLX_KEY_A && key.action == MLX_PRESS)
-		move_player(A);
+		move_player(game, 'A');
 	if (key.key == MLX_KEY_S && key.action == MLX_PRESS)
-		move_player(S);
+		move_player(game, 'S');
 	if (key.key == MLX_KEY_D && key.action == MLX_PRESS)
-		move_player(D);
-	*/
+		move_player(game, 'D');
 }
 
 int	main(int argc, char **argv)

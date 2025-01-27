@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+         #
+#    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 16:02:10 by eduaserr          #+#    #+#              #
-#    Updated: 2025/01/27 16:01:44 by eduaserr         ###   ########.fr        #
+#    Updated: 2025/01/27 21:24:32 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,10 +40,11 @@ libmlx:
 
 %.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
-	echo "Game compiled"
+
 
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+	echo "Game compiled"
 
 clean:
 	$(MAKE) -C $(LIB) clean
