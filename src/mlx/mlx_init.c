@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:01:29 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/25 19:44:53 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/27 03:26:12 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,25 @@ static void	ft_load_txture(t_game *game, t_img *images, t_txture *txture)
 	}
 }
 
+void	render_map(t_game *game)
+{
+	int y;
+	int x;
+
+	y = 0;
+	while (y < game->map.length)
+	{
+		x = 0;
+		while (x < game->map.width)
+		{
+			mlx_image_to_window(game->mlx, game->images.floor, x * 64, y * 64);
+			set_keyimage(game, y, x);
+			x++;
+		}
+		y++;
+	}
+}
+
 void	process_images(t_game *game, t_img *images, t_txture *txture)
 {
 	game->mlx = mlx_init(game->map.width * 64, game->map.length * 64, "So_long", false);
@@ -70,4 +89,5 @@ void	process_images(t_game *game, t_img *images, t_txture *txture)
 	}
 	ft_load_png(txture, game);
 	ft_load_txture(game, images, txture);
+	render_map(game);
 }

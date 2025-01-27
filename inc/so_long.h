@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/25 18:41:20 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/27 03:29:16 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ void	init_struct(t_game *game);
 int		check_extension(char **argv);
 /*	MLX	*/
 //	mlx_init
+void	render_map(t_game *game);
+
 void	process_images(t_game *game, t_img *images, t_txture *txture);
 /*	UTILS	*/
 //	utils_free
@@ -116,5 +118,6 @@ void	ft_printmap(char **file_map);//borrar
 void	get_fullmatrixlen(char **map, int *y, int *x);
 
 char	**ft_arrdup(char **arr);
-
+//	utils_mlx
+void	set_keyimage(t_game *game, int y, int x);
 #endif

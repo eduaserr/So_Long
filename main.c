@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:44:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/26 04:56:31 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/27 03:27:48 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 		//nº de veces que se pulsa una tecla de moverse W,A,S,D
 	//ft_printf("WIDTH: %d | HEIGHT: %d\n", mlx->width, mlx->height);
 } */
+
 void	ft_key_hook(mlx_key_data_t key, void *param)
 {
 	t_game	*game;
@@ -55,22 +56,6 @@ int	main(int argc, char **argv)
 
 	ft_printmap(game.map.map);
 	ft_printf("WIDTH: %d | HEIGHT: %d\n", game.map.width, game.map.length);
-
-// función para poner una imagen en la ventana
-	int y;
-	int x;
-	y = 0;
-	while (y < game.map.length)
-    {
-		x = 0;
-        while (x < game.map.width)
-        {
-            mlx_image_to_window(game.mlx, game.images.walls, x * 64, y * 64);
-			x++;
-        }
-		y++;
-    }
-	mlx_image_to_window(game.mlx, game.images.walls, 0, 0);
 
 	//mlx_loop_hook(game.mlx, ft_hook, game.mlx);
 	mlx_key_hook(game.mlx, &ft_key_hook, &game);

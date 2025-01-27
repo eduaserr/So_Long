@@ -6,7 +6,7 @@
 #    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 16:02:10 by eduaserr          #+#    #+#              #
-#    Updated: 2025/01/25 20:08:20 by eduaserr         ###   ########.fr        #
+#    Updated: 2025/01/27 03:30:01 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC		:= ./main.c
 SRCS	:= src/init/check_elements.c src/init/check_path.c\
 		src/parse/parse_input.c src/parse/get_map.c\
 		src/mlx/mlx_init.c\
-		src/utils/utils_map.c src/utils/utils_free.c
+		src/utils/utils_map.c src/utils/utils_free.c src/utils/utils_mlx.c
 
 ### OBJ ###
 OBJS	:= ${SRCS:.c=.o} $(SRC:.c=.o)
