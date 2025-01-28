@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:01:29 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/28 17:45:41 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:05:06 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	ft_load_png(t_txture *txture, t_game *game)
 {
+	init_img(game);
 	if (((txture->coins = mlx_load_png("sprites/coin01.png")) == NULL)
 		|| ((txture->exit = mlx_load_png("sprites/exit.png")) == NULL))
 	{
@@ -40,6 +41,7 @@ static void	ft_load_png(t_txture *txture, t_game *game)
 
 static void	ft_load_txture(t_game *game, t_img *images, t_txture *txture)
 {
+	init_txtures(game);
 	images->coins = mlx_texture_to_image(game->mlx, txture->coins);
 	images->exit = mlx_texture_to_image(game->mlx, txture->exit);
 	if (!images->coins || !images->exit)

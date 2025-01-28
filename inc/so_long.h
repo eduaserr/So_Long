@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/28 17:43:18 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:03:55 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,11 @@ void	get_map(t_game *game, char *file_map);
 
 void	check_elements(t_game *game);
 //	parse_input
-void	init_struct(t_game *game);
+void	init_values(t_game *game);
+
+void	init_txtures(t_game *game);
+
+void	init_img(t_game *game);
 
 int		check_extension(char **argv);
 /*	MLX	*/

@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/22 18:52:17 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:04:29 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static char	**read_map(char *file_map)
 
 void	get_map(t_game *game, char *file_map)
 {
-	init_struct(game);
+	init_values(game);
 	game->map.map = read_map(file_map);
 	get_fullmatrixlen(game->map.map, &game->map.length, &game->map.width);
 	game->map.cpymap = ft_arrdup(game->map.map);

@@ -6,13 +6,24 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/28 17:33:05 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:03:36 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-static void	init_txtures(t_game *game)
+void	init_values(t_game *game)
+{
+	game->map.length = 0;
+	game->map.width = 0;
+	game->map.player = 0;
+	game->map.exit = 0;
+	game->map.coin = 0;
+	game->map.floor = 0;
+	game->map.wall = 0;
+}
+
+void	init_txtures(t_game *game)
 {
 	game->txture.floor = NULL;
 	game->txture.walls = NULL;
@@ -24,18 +35,7 @@ static void	init_txtures(t_game *game)
 	game->txture.player.playerright = NULL;
 }
 
-static void	init_values(t_game *game)
-{
-	game->map.length = 0;
-	game->map.width = 0;
-	game->map.player = 0;
-	game->map.exit = 0;
-	game->map.coin = 0;
-	game->map.floor = 0;
-	game->map.wall = 0;
-}
-
-static void	init_img(t_game *game)
+void	init_img(t_game *game)
 {
 	game->images.floor = NULL;
 	game->images.walls = NULL;
@@ -45,13 +45,6 @@ static void	init_img(t_game *game)
 	game->images.player.playerup = NULL;
 	game->images.player.playerleft = NULL;
 	game->images.player.playerright = NULL;
-}
-
-void	init_struct(t_game *game)
-{
-	init_values(game);
-	init_img(game);
-	init_txtures(game);
 }
 
 int	check_extension(char **argv)
