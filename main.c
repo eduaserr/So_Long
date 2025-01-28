@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:44:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/28 19:34:56 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/28 21:22:02 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,35 @@
 	(void)param;
 	// printear nº de movimientos
 		//nº de veces que se pulsa una tecla de moverse W,A,S,D
-	//refresh_frames ,, frame rate
 	//mlx_image_to_window();
 } */
+
 /*void	move_player(t_game *game, char move)
 {
-	char pos;
+	int	x;
+	int	y;
 
-	pos = game->map.map[game->map.player_pos.y][game->map.player_pos.x];
-	if (pos == move)
+	x = game->map.player_pos.x;
+	y = game->map.player_pos.y;
+	mlx_image_to_window(game->mlx, game->images.floor, x * 64, y * 64);
+	if (move == 'W' && (--y < 0 && y < game->map.length))
 	{
-		mlx_image_to_window(game->mlx, game->images.player, game->map.player_pos.x * 64, (game->map.player_pos.y + 1) * 64);
+		mlx_image_to_window(game->mlx, game->images.player.playerup, x * 64, y * 64);
 	}
+	else if (move == 'A' && (--x > 0 && x < game->map.width))
+	{
+		mlx_image_to_window(game->mlx, game->images.player.playerleft, x * 64, y * 64);
+	}
+	else if (move == 'S' && (++y > 0 && y < game->map.length))
+	{
+		mlx_image_to_window(game->mlx, game->images.player.playerdown, x * 64, y * 64);
+	}
+	else if (move == 'D' && (++x > 0 && x < game->map.width))
+	{
+		mlx_image_to_window(game->mlx, game->images.player.playerright, x * 64, y * 64);
+	}
+	game->map.player_pos.x = x;
+	game->map.player_pos.y = y;
 }*/
 
 void	move_player(t_game *game, char move)
@@ -38,17 +55,29 @@ void	move_player(t_game *game, char move)
 
 	x = game->map.player_pos.x;
 	y = game->map.player_pos.y;
-	(void)move;
-
-	if (move == 'W')
-		mlx_image_to_window(game->mlx, game->images.player.playerup, x * 64, (y - 1) * 64);
-	if (move == 'A')
-		mlx_image_to_window(game->mlx, game->images.player.playerleft, (x - 1) * 64, y * 64);
-	if (move == 'S')
-		mlx_image_to_window(game->mlx, game->images.player.playerdown, x * 64, (y + 1) * 64);
-	if (move == 'D')
-		mlx_image_to_window(game->mlx, game->images.player.playerright, (x + 1) * 64, y * 64);
 	mlx_image_to_window(game->mlx, game->images.floor, x * 64, y * 64);
+	if (move == 'W')
+	{
+		y--;
+		mlx_image_to_window(game->mlx, game->images.player.playerup, x * 64, y * 64);
+	}
+	if (move == 'A')
+	{
+		x--;
+		mlx_image_to_window(game->mlx, game->images.player.playerleft, x * 64, y * 64);
+	}
+	if (move == 'S')
+	{
+		y++;
+		mlx_image_to_window(game->mlx, game->images.player.playerdown, x * 64, y * 64);
+	}
+	if (move == 'D')
+	{
+		x++;
+		mlx_image_to_window(game->mlx, game->images.player.playerright, x * 64, y * 64);
+	}
+	game->map.player_pos.x = x;
+	game->map.player_pos.y = y;
 }
 
 void	ft_key_hook(mlx_key_data_t key, void *param)
@@ -70,10 +99,10 @@ void	ft_key_hook(mlx_key_data_t key, void *param)
 	if ((key.key == MLX_KEY_A || key.key == MLX_KEY_LEFT)
 		&& key.action == MLX_PRESS)
 		move_player(game, 'A');
-	if ((key.key == MLX_KEY_S  || key.key == MLX_KEY_DOWN)
+	if ((key.key == MLX_KEY_S || key.key == MLX_KEY_DOWN)
 		&& key.action == MLX_PRESS)
 		move_player(game, 'S');
-	if ((key.key == MLX_KEY_D  || key.key == MLX_KEY_RIGHT)
+	if ((key.key == MLX_KEY_D || key.key == MLX_KEY_RIGHT)
 		&& key.action == MLX_PRESS)
 		move_player(game, 'D');
 }
