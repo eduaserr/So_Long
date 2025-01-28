@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/27 16:20:15 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/28 17:43:18 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,29 @@ typedef struct s_player
 	int	x;
 }		t_player;
 
+typedef struct s_txpos
+{
+	mlx_texture_t	*playerup;
+	mlx_texture_t	*playerdown;
+	mlx_texture_t	*playerleft;
+	mlx_texture_t	*playerright;
+}		t_txpos;
+
+typedef struct s_pos
+{
+	mlx_image_t	*playerup;
+	mlx_image_t	*playerdown;
+	mlx_image_t	*playerleft;
+	mlx_image_t	*playerright;
+}		t_pos;
+
 typedef struct s_img
 {
 	mlx_image_t	*floor;
 	mlx_image_t	*walls;
 	mlx_image_t	*coins;
 	mlx_image_t	*exit;
-	mlx_image_t	*player;
+	t_pos		player;
 }		t_img;
 
 typedef struct s_txture
@@ -45,7 +61,7 @@ typedef struct s_txture
 	mlx_texture_t	*walls;
 	mlx_texture_t	*coins;
 	mlx_texture_t	*exit;
-	mlx_texture_t	*player;
+	t_txpos			player;
 }		t_txture;
 
 typedef struct s_map

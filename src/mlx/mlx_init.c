@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:01:29 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/27 17:32:54 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/28 17:45:41 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,12 @@ static void	ft_load_png(t_txture *txture, t_game *game)
 		ft_freegame(game);
 		ft_error("load img error2");
 	}
-	if (!(txture->player = mlx_load_png("sprites/player_down01.png")))
+	txture->player.playerdown = mlx_load_png("sprites/player_down01.png");
+	txture->player.playerup = mlx_load_png("sprites/player_up01.png");
+	txture->player.playerleft = mlx_load_png("sprites/player_left01.png");
+	txture->player.playerright = mlx_load_png("sprites/player_right01.png");
+	if (!txture->player.playerdown || !txture->player.playerup
+		|| !txture->player.playerleft || !txture->player.playerright)
 	{
 		ft_freegame(game);
 		ft_error("load img error3");
@@ -43,14 +48,18 @@ static void	ft_load_txture(t_game *game, t_img *images, t_txture *txture)
 		ft_error("load texture error1");
 	}
 	images->floor = mlx_texture_to_image(game->mlx, txture->floor);
-	images->player = mlx_texture_to_image(game->mlx, txture->player);
-	if (!txture->coins || !txture->exit)
+	images->walls = mlx_texture_to_image(game->mlx, txture->walls);
+	if (!txture->floor || !txture->walls)
 	{
 		ft_freegame(game);
 		ft_error("load texture error2");
 	}
-	images->walls = mlx_texture_to_image(game->mlx, txture->walls);
-	if (!images->walls)
+	images->player.playerdown = mlx_texture_to_image(game->mlx, txture->player.playerdown);
+	images->player.playerup = mlx_texture_to_image(game->mlx, txture->player.playerup);
+	images->player.playerleft = mlx_texture_to_image(game->mlx, txture->player.playerleft);
+	images->player.playerright = mlx_texture_to_image(game->mlx, txture->player.playerright);
+	if (!images->player.playerdown || !images->player.playerup
+		|| !images->player.playerleft || !images->player.playerright)
 	{
 		ft_freegame(game);
 		ft_error("load texture error3");
