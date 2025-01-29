@@ -104,4 +104,6 @@ void	ft_key_hook(mlx_key_data_t key, void *param)
 	else if ((key.key == MLX_KEY_D || key.key == MLX_KEY_RIGHT)
 		&& key.action == MLX_PRESS)
 		move_player(game, 'D');
+	//if (game->map.coin)
+	//finish_game();
 }
