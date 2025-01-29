@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 01:23:41 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/22 18:36:31 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:23 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,12 @@ int	check_path(t_map *map, char **cpymap, int y, int x)
 {
 	if (!cpymap || y < 0 || x < 0 || !cpymap[y] || !cpymap[y][x])
 		return (0);
+	if (cpymap[y][x] == 'E')
+	{
+		map->exit--;
+	}
 	if (cpymap[y][x] == '1' || cpymap[y][x] == 'V')
 		return (0);
-	if (cpymap[y][x] == 'E')
-		map->exit--;
 	if (cpymap[y][x] == 'C')
 		map->coin--;
 	cpymap[y][x] = 'V';

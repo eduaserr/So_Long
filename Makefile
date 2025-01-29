@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+         #
+#    By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 16:02:10 by eduaserr          #+#    #+#              #
-#    Updated: 2025/01/27 21:24:32 by eduaserr         ###   ########.fr        #
+#    Updated: 2025/01/29 16:56:41 by eduaserr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ LIBS	:= -L $(LIB) -lft -L $(LIBMLX)/build/ -lmlx42 -ldl -lglfw -pthread -lm
 SRC		:= ./main.c
 SRCS	:= src/init/check_elements.c src/init/check_path.c\
 		src/parse/parse_input.c src/parse/get_map.c\
-		src/mlx/mlx_init.c\
+		src/mlx/mlx_init.c src/mlx/mlx_keyhook.c\
 		src/utils/utils_map.c src/utils/utils_free.c src/utils/utils_mlx.c
 
 ### OBJ ###

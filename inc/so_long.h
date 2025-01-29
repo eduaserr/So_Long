@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/28 18:03:55 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:12:03 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,8 @@ int		check_extension(char **argv);
 void	render_map(t_game *game);
 
 void	process_images(t_game *game, t_img *images, t_txture *txture);
+//	mlx_keyhook
+void	ft_key_hook(mlx_key_data_t key, void *param);
 /*	UTILS	*/
 //	utils_free
 void	ft_free_mlx(t_game *game);
