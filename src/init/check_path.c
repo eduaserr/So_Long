@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_path.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 01:23:41 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/29 18:19:27 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/01 23:17:05 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ void	exit_pos(t_map *map, char **filemap)
 
 int	check_path(t_map *map, char **cpymap, int y, int x)
 {
-	if (!cpymap || y < 0 || x < 0 || !cpymap[y] || !cpymap[y][x])
+	if (!cpymap || y < 0 || y >= map->length
+		|| x < 0 || x >= map->width || !cpymap[y])
 		return (0);
 	if (cpymap[y][x] == 'E')
 	{
@@ -68,9 +69,9 @@ int	check_path(t_map *map, char **cpymap, int y, int x)
 		return (0);
 	if (cpymap[y][x] == 'C')
 		map->coin--;
-	cpymap[y][x] = 'V';
 	if (map->coin == 0 && map->exit == 0)
 		return (1);
+	cpymap[y][x] = 'V';
 	if (check_path(map, cpymap, y + 1, x)
 		|| check_path(map, cpymap, y - 1, x)
 		|| check_path(map, cpymap, y, x - 1)

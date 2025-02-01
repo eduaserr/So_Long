@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:44:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/29 18:10:55 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/01 22:11:59 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 		ft_error("Invalid arguments");
 	get_map(&game, argv[1]);
 	check_elements(&game);
-	process_images(&game, &game.images, &game.txture);
+	process_images(&game, game.images, game.txture);
 	ft_printmap(game.map.map);
 	ft_printf("WIDTH: %d | HEIGHT: %d\n", game.map.width, game.map.length);
 	//mlx_loop_hook(game.mlx, ft_hook, game.mlx);
@@ -41,5 +41,6 @@ int	main(int argc, char **argv)
 	ft_printf("------WIN------\n");
 	ft_printf("---------------\n");
 	ft_freegame(&game);
+	mlx_terminate(game.mlx);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/29 18:19:40 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/01 22:03:10 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_img
 	mlx_image_t	*walls;
 	mlx_image_t	*coins;
 	mlx_image_t	*exit;
-	t_pos		player;
+	t_pos		*player;
 }		t_img;
 
 typedef struct s_txture
@@ -61,7 +61,7 @@ typedef struct s_txture
 	mlx_texture_t	*walls;
 	mlx_texture_t	*coins;
 	mlx_texture_t	*exit;
-	t_txpos			player;
+	t_txpos			*player;
 }		t_txture;
 
 typedef struct s_map
@@ -83,8 +83,8 @@ typedef struct s_game
 {
 	void		*mlx;
 	void		*window;
-	t_img		images;
-	t_txture	txture;
+	t_img		*images;
+	t_txture	*txture;
 	t_map		map;
 }		t_game;
 
@@ -111,9 +111,9 @@ void	check_elements(t_game *game);
 //	parse_input
 void	init_values(t_game *game);
 
-void	init_txtures(t_game *game);
+t_txture	*init_txtures(void);
 
-void	init_img(t_game *game);
+t_img	*init_img(void);
 
 int		check_extension(char **argv);
 /*	MLX	*/

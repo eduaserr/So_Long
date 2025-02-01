@@ -3,17 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/01/28 18:03:36 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/01 22:48:50 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
+t_txture	*init_txtures(void)
+{
+	t_txture *tmp;
+
+	tmp = (t_txture *)malloc(sizeof(t_txture));
+	if (!tmp)
+		return (NULL);
+	tmp->floor = NULL;
+	tmp->walls = NULL;
+	tmp->coins = NULL;
+	tmp->exit = NULL;
+	tmp->player = (t_txpos *)malloc(sizeof(t_txpos));
+	if (!tmp->player)
+		return (free(tmp), NULL);
+	tmp->player->playerdown = NULL;
+	tmp->player->playerup = NULL;
+	tmp->player->playerleft = NULL;
+	tmp->player->playerright = NULL;
+	return (tmp);
+}
+
+t_img	*init_img(void)
+{
+	t_img *tmp;
+
+	tmp = (t_img *)malloc(sizeof(t_img));
+	if (!tmp)
+		return (NULL);
+	tmp->floor = NULL;
+	tmp->walls = NULL;
+	tmp->coins = NULL;
+	tmp->exit = NULL;
+	tmp->player = (t_pos *)malloc(sizeof(t_pos));
+	if (!tmp->player)
+		return (free(tmp), NULL);
+	tmp->player->playerdown = NULL;
+	tmp->player->playerup = NULL;
+	tmp->player->playerleft = NULL;
+	tmp->player->playerright = NULL;
+	return (tmp);
+}
+
 void	init_values(t_game *game)
 {
+	game->mlx = NULL;
+	game->window = NULL;
 	game->map.length = 0;
 	game->map.width = 0;
 	game->map.player = 0;
@@ -21,30 +65,13 @@ void	init_values(t_game *game)
 	game->map.coin = 0;
 	game->map.floor = 0;
 	game->map.wall = 0;
-}
-
-void	init_txtures(t_game *game)
-{
-	game->txture.floor = NULL;
-	game->txture.walls = NULL;
-	game->txture.coins = NULL;
-	game->txture.exit = NULL;
-	game->txture.player.playerdown = NULL;
-	game->txture.player.playerup = NULL;
-	game->txture.player.playerleft = NULL;
-	game->txture.player.playerright = NULL;
-}
-
-void	init_img(t_game *game)
-{
-	game->images.floor = NULL;
-	game->images.walls = NULL;
-	game->images.coins = NULL;
-	game->images.exit = NULL;
-	game->images.player.playerdown = NULL;
-	game->images.player.playerup = NULL;
-	game->images.player.playerleft = NULL;
-	game->images.player.playerright = NULL;
+	game->txture = init_txtures();
+	game->images = init_img();
+	if (!game->txture || !game->txture->player
+		|| !game->images || !game->images->player)
+	{
+		ft_error("init values error");
+	}
 }
 
 int	check_extension(char **argv)
