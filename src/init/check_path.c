@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_path.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 01:23:41 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/01 23:17:05 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:03:35 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,12 @@ int	check_path(t_map *map, char **cpymap, int y, int x)
 	if (!cpymap || y < 0 || y >= map->length
 		|| x < 0 || x >= map->width || !cpymap[y])
 		return (0);
-	if (cpymap[y][x] == 'E')
-	{
+	if (cpymap[y][x] == 'E' && map->exit == 1)
 		map->exit--;
-	}
-	if (cpymap[y][x] == '1' || cpymap[y][x] == 'V')
-		return (0);
 	if (cpymap[y][x] == 'C')
 		map->coin--;
+	if (cpymap[y][x] == '1' || cpymap[y][x] == 'V' || cpymap[y][x] == 'E')
+		return (0);
 	if (map->coin == 0 && map->exit == 0)
 		return (1);
 	cpymap[y][x] = 'V';
