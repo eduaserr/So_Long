@@ -16,25 +16,17 @@ void	update_pos(t_game *game, char move, int x, int y)
 {
 	mlx_image_to_window(game->mlx, game->images->floor, x * 64, y * 64);
 	if (move == 'W')
-	{
-		mlx_image_to_window(game->mlx, game->images->player->playerup,
+		mlx_image_to_window(game->mlx, game->images->player->pup,
 			x * 64, --y * 64);
-	}
 	else if (move == 'A')
-	{
-		mlx_image_to_window(game->mlx, game->images->player->playerleft,
+		mlx_image_to_window(game->mlx, game->images->player->pleft,
 			--x * 64, y * 64);
-	}
 	else if (move == 'S')
-	{
-		mlx_image_to_window(game->mlx, game->images->player->playerdown,
+		mlx_image_to_window(game->mlx, game->images->player->pdown,
 			x * 64, ++y * 64);
-	}
 	else if (move == 'D')
-	{
-		mlx_image_to_window(game->mlx, game->images->player->playerright,
+		mlx_image_to_window(game->mlx, game->images->player->pright,
 			++x * 64, y * 64);
-	}
 	game->map.player_pos.x = x;
 	game->map.player_pos.y = y;
 }
@@ -84,7 +76,8 @@ void	ft_key_hook(mlx_key_data_t key, void *param)
 	t_game	*game;
 
 	game = param;
-	if ((key.key == MLX_KEY_ESCAPE || key.key == MLX_KEY_Q) && key.action == MLX_PRESS)
+	if ((key.key == MLX_KEY_ESCAPE || key.key == MLX_KEY_Q)
+		&& key.action == MLX_PRESS)
 	{
 		ft_freegame(game);
 		mlx_terminate(game->mlx);

@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:01:29 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/04 18:08:05 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/04 21:43:46 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,21 @@
 
 static void	ft_load_png(t_txture *txture, t_game *game)
 {
-	if (((txture->coins = mlx_load_png("sprites/coin01.png")) == NULL)
-		|| ((txture->exit = mlx_load_png("sprites/exit.png")) == NULL))
+	txture->coins = mlx_load_png("sprites/coin01.png");
+	txture->exit = mlx_load_png("sprites/exit.png");
+	if (!(txture->coins) || (!(txture->exit)))
 	{
 		ft_freegame(game);
 		mlx_terminate(game->mlx);
 		ft_error("load img error1");
 	}
-	if (((txture->floor = mlx_load_png("sprites/floor01.png")) == NULL)
-		|| ((txture->walls = mlx_load_png("sprites/wall03.png")) == NULL))
+	txture->floor = mlx_load_png("sprites/floor01.png");
+	txture->walls = mlx_load_png("sprites/wall03.png");
+	if (!txture->floor || !txture->walls)
 	{
 		ft_freegame(game);
 		mlx_terminate(game->mlx);
 		ft_error("load img error2");
-	}
-	txture->player->playerdown = mlx_load_png("sprites/player_down01.png");
-	txture->player->playerup = mlx_load_png("sprites/player_up01.png");
-	txture->player->playerleft = mlx_load_png("sprites/player_left01.png");
-	txture->player->playerright = mlx_load_png("sprites/player_right01.png");
-	if (!txture->player->playerdown || !txture->player->playerup
-		|| !txture->player->playerleft || !txture->player->playerright)
-	{
-		ft_freegame(game);
-		mlx_terminate(game->mlx);
-		ft_error("load img error3");
 	}
 }
 
@@ -57,12 +48,27 @@ static void	ft_load_txture(t_game *game, t_img *images, t_txture *txture)
 		mlx_terminate(game->mlx);
 		ft_error("load texture error2");
 	}
-	images->player->playerdown = mlx_texture_to_image(game->mlx, txture->player->playerdown);
-	images->player->playerup = mlx_texture_to_image(game->mlx, txture->player->playerup);
-	images->player->playerleft = mlx_texture_to_image(game->mlx, txture->player->playerleft);
-	images->player->playerright = mlx_texture_to_image(game->mlx, txture->player->playerright);
-	if (!images->player->playerdown || !images->player->playerup
-		|| !images->player->playerleft || !images->player->playerright)
+}
+
+static void	ft_load_player(t_game *game, t_img *img, t_txture *txt)
+{
+	txt->player->pdown = mlx_load_png("sprites/player_down01.png");
+	txt->player->pup = mlx_load_png("sprites/player_up01.png");
+	txt->player->pleft = mlx_load_png("sprites/player_left01.png");
+	txt->player->pright = mlx_load_png("sprites/player_right01.png");
+	if (!txt->player->pdown || !txt->player->pup
+		|| !txt->player->pleft || !txt->player->pright)
+	{
+		ft_freegame(game);
+		mlx_terminate(game->mlx);
+		ft_error("load img error3");
+	}
+	img->player->pdown = mlx_texture_to_image(game->mlx, txt->player->pdown);
+	img->player->pup = mlx_texture_to_image(game->mlx, txt->player->pup);
+	img->player->pleft = mlx_texture_to_image(game->mlx, txt->player->pleft);
+	img->player->pright = mlx_texture_to_image(game->mlx, txt->player->pright);
+	if (!img->player->pdown || !img->player->pup
+		|| !img->player->pleft || !img->player->pright)
 	{
 		ft_freegame(game);
 		mlx_terminate(game->mlx);
@@ -70,7 +76,7 @@ static void	ft_load_txture(t_game *game, t_img *images, t_txture *txture)
 	}
 }
 
-void	render_map(t_game *game)
+static void	render_map(t_game *game)
 {
 	int y;
 	int x;
@@ -91,7 +97,8 @@ void	render_map(t_game *game)
 
 void	process_images(t_game *game, t_img *images, t_txture *txture)
 {
-	game->mlx = mlx_init(game->map.width * 64, game->map.length * 64, "So_long", false);
+	game->mlx = mlx_init(game->map.width * 64, game->map.length * 64,
+		"So_long", false);
 	if (!game->mlx)
 	{
 		ft_freegame(game);
@@ -100,5 +107,6 @@ void	process_images(t_game *game, t_img *images, t_txture *txture)
 	}
 	ft_load_png(txture, game);
 	ft_load_txture(game, images, txture);
+	ft_load_player(game, images, txture);
 	render_map(game);
 }

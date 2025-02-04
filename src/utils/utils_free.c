@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:41:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/04 17:09:21 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/04 21:24:22 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ static void	ft_free_textures(t_txture *textures)
 		mlx_delete_texture(textures->walls);
 	if (!textures->player)
 		return ;
-	if (textures->player->playerup)
-		mlx_delete_texture(textures->player->playerup);
-	if (textures->player->playerdown)
-		mlx_delete_texture(textures->player->playerdown);
-	if (textures->player->playerleft)
-		mlx_delete_texture(textures->player->playerleft);
-	if (textures->player->playerright)
-		mlx_delete_texture(textures->player->playerright);
+	if (textures->player->pup)
+		mlx_delete_texture(textures->player->pup);
+	if (textures->player->pdown)
+		mlx_delete_texture(textures->player->pdown);
+	if (textures->player->pleft)
+		mlx_delete_texture(textures->player->pleft);
+	if (textures->player->pright)
+		mlx_delete_texture(textures->player->pright);
 	if (textures->player)
 		free(textures->player);
 	free(textures);
@@ -53,14 +53,14 @@ static void	ft_free_images(t_game *game, t_img *images)
 		mlx_delete_image(game->mlx, images->walls);
 	if (!images->player)
 		return ;
-	if (images->player->playerup)
-		mlx_delete_image(game->mlx, images->player->playerup);
-	if (images->player->playerdown)
-		mlx_delete_image(game->mlx, images->player->playerdown);
-	if (images->player->playerleft)
-		mlx_delete_image(game->mlx, images->player->playerleft);
-	if (images->player->playerright)
-		mlx_delete_image(game->mlx, images->player->playerright);
+	if (images->player->pup)
+		mlx_delete_image(game->mlx, images->player->pup);
+	if (images->player->pdown)
+		mlx_delete_image(game->mlx, images->player->pdown);
+	if (images->player->pleft)
+		mlx_delete_image(game->mlx, images->player->pleft);
+	if (images->player->pright)
+		mlx_delete_image(game->mlx, images->player->pright);
 	if (images->player)
 		free(images->player);
 	free(images);

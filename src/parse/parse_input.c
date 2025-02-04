@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/01 22:48:50 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/04 21:11:27 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_txture	*init_txtures(void)
 {
-	t_txture *tmp;
+	t_txture	*tmp;
 
 	tmp = (t_txture *)malloc(sizeof(t_txture));
 	if (!tmp)
@@ -26,16 +26,16 @@ t_txture	*init_txtures(void)
 	tmp->player = (t_txpos *)malloc(sizeof(t_txpos));
 	if (!tmp->player)
 		return (free(tmp), NULL);
-	tmp->player->playerdown = NULL;
-	tmp->player->playerup = NULL;
-	tmp->player->playerleft = NULL;
-	tmp->player->playerright = NULL;
+	tmp->player->pdown = NULL;
+	tmp->player->pup = NULL;
+	tmp->player->pleft = NULL;
+	tmp->player->pright = NULL;
 	return (tmp);
 }
 
 t_img	*init_img(void)
 {
-	t_img *tmp;
+	t_img	*tmp;
 
 	tmp = (t_img *)malloc(sizeof(t_img));
 	if (!tmp)
@@ -47,10 +47,10 @@ t_img	*init_img(void)
 	tmp->player = (t_pos *)malloc(sizeof(t_pos));
 	if (!tmp->player)
 		return (free(tmp), NULL);
-	tmp->player->playerdown = NULL;
-	tmp->player->playerup = NULL;
-	tmp->player->playerleft = NULL;
-	tmp->player->playerright = NULL;
+	tmp->player->pdown = NULL;
+	tmp->player->pup = NULL;
+	tmp->player->pleft = NULL;
+	tmp->player->pright = NULL;
 	return (tmp);
 }
 

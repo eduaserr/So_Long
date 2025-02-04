@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/04 16:56:33 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/04 21:21:45 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,18 @@ typedef struct s_player
 
 typedef struct s_txpos
 {
-	mlx_texture_t	*playerup;
-	mlx_texture_t	*playerdown;
-	mlx_texture_t	*playerleft;
-	mlx_texture_t	*playerright;
+	mlx_texture_t	*pup;
+	mlx_texture_t	*pdown;
+	mlx_texture_t	*pleft;
+	mlx_texture_t	*pright;
 }		t_txpos;
 
 typedef struct s_pos
 {
-	mlx_image_t	*playerup;
-	mlx_image_t	*playerdown;
-	mlx_image_t	*playerleft;
-	mlx_image_t	*playerright;
+	mlx_image_t	*pup;
+	mlx_image_t	*pdown;
+	mlx_image_t	*pleft;
+	mlx_image_t	*pright;
 }		t_pos;
 
 typedef struct s_img
@@ -118,8 +118,6 @@ t_img	*init_img(void);
 int		check_extension(char **argv);
 /*	MLX	*/
 //	mlx_init
-void	render_map(t_game *game);
-
 void	process_images(t_game *game, t_img *images, t_txture *txture);
 //	mlx_keyhook
 void	ft_key_hook(mlx_key_data_t key, void *param);
