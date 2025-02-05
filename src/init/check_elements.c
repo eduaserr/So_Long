@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_elements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:05:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/05 05:07:13 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:38:00 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ void	valid_path(t_game *game, t_map *map)
 		ft_error("Checking path error, unreachable exit");
 	}
 	map->coin = coins;
+	ft_freemap(map->cpymap);
+	map->cpymap = NULL;
 	map->cpymap = ft_arrdup(map->map);
 	if (!map->cpymap)
 	{

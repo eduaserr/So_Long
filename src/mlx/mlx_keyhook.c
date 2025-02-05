@@ -97,7 +97,8 @@ void	ft_key_hook(mlx_key_data_t key, void *param)
 		ft_printf("Exit game . . .❌🔌\n");
 		exit(EXIT_SUCCESS);
 	}
-	else if (key.key == MLX_KEY_W || key.key == MLX_KEY_UP)
+	else if ((key.key == MLX_KEY_W || key.key == MLX_KEY_UP)
+		&& key.action == MLX_PRESS)
 		move_player(game, 'W');
 	else if ((key.key == MLX_KEY_A || key.key == MLX_KEY_LEFT)
 		&& key.action == MLX_PRESS)
