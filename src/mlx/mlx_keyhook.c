@@ -12,7 +12,7 @@
 
 #include "../../inc/so_long.h"
 
-void	update_pos(t_game *game, char move, int x, int y)
+static void	update_pos(t_game *game, char move, int x, int y)
 {
 	mlx_image_to_window(game->mlx, game->images->floor, x * 64, y * 64);
 	if (move == 'W')
@@ -31,33 +31,39 @@ void	update_pos(t_game *game, char move, int x, int y)
 	game->map.player_pos.y = y;
 }
 
-int	check_walls(t_game *game, char move, int x, int y)
+static int	check_walls(t_map *map, char move, int x, int y)
 {
 	if (move == 'W')
 	{
-		if (game->map.map[y - 1][x] == '1'
-			|| game->map.map[y - 1][x] == 'E')
+		if (map->map[y - 1][x] == '1'
+			|| (map->map[y - 1][x] == 'E' && map->coin != 0))
 			return (0);
 	}
 	else if (move == 'A')
 	{
-		if (game->map.map[y][x - 1] == '1'
-			|| game->map.map[y][x - 1] == 'E')
+		if (map->map[y][x - 1] == '1'
+			|| (map->map[y][x - 1] == 'E' && map->coin != 0))
 			return (0);
 	}
 	else if (move == 'S')
 	{
-		if (game->map.map[y + 1][x] == '1'
-			|| game->map.map[y + 1][x] == 'E')
+		if (map->map[y + 1][x] == '1'
+			|| (map->map[y + 1][x] == 'E' && map->coin != 0))
 			return (0);
 	}
 	else if (move == 'D')
 	{
-		if (game->map.map[y][x + 1] == '1'
-			|| game->map.map[y][x + 1] == 'E')
+		if (map->map[y][x + 1] == '1'
+			|| (map->map[y][x + 1] == 'E' && map->coin != 0))
 			return (0);
 	}
 	return (1);
+}
+
+void	get_coin(t_game *game, char **map, int y, int x)
+{
+	if (map[y][x] == 'C' && game->map.coin != 0)
+		game->map.coin--;
 }
 
 void	move_player(t_game *game, char move)
@@ -67,8 +73,34 @@ void	move_player(t_game *game, char move)
 
 	x = game->map.player_pos.x;
 	y = game->map.player_pos.y;
-	if (check_walls(game, move, x, y))
+	if (check_walls(&game->map, move, x, y))
+	{
+		get_coin(game, game->map.map, y, x);
 		update_pos(game, move, x, y);
+	}
+}
+
+static void	finish_game(t_game *game)
+{
+	int	player_y;
+	int	player_x;
+	int	exit_y;
+	int	exit_x;
+
+	player_y = game->map.player_pos.y;
+	player_x = game->map.player_pos.x;
+	exit_y = game->map.exit_pos.y;
+	exit_x = game->map.exit_pos.x;
+	if ((player_x == exit_x && player_y == exit_y)
+		&& game->map.coin == 0)
+	{
+		ft_freegame(game);
+		mlx_terminate(game->mlx);
+		ft_printf("---------------\n");
+		ft_printf("------WIN------\n");
+		ft_printf("---------------\n");
+		exit(EXIT_SUCCESS);
+	}
 }
 
 void	ft_key_hook(mlx_key_data_t key, void *param)
@@ -96,6 +128,5 @@ void	ft_key_hook(mlx_key_data_t key, void *param)
 	else if ((key.key == MLX_KEY_D || key.key == MLX_KEY_RIGHT)
 		&& key.action == MLX_PRESS)
 		move_player(game, 'D');
-	//if (game->map.coin)
-	//finish_game();
+	finish_game(game);
 }

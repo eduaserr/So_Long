@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:44:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/01 22:11:59 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/05 04:47:30 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ int	main(int argc, char **argv)
 	mlx_key_hook(game.mlx, &ft_key_hook, &game);
 	
 	mlx_loop(game.mlx);
-	ft_printf("---------------\n");
-	ft_printf("------WIN------\n");
-	ft_printf("---------------\n");
 	ft_freegame(&game);
 	mlx_terminate(game.mlx);
 	return (0);

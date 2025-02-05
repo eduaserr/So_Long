@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_elements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:05:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/04 21:23:12 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/05 04:48:38 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,9 @@ void	check_entities(t_map *map, char **filemap)
 
 void	valid_path(t_game *game, t_map *map)
 {
+	int	coins;
+
+	coins = map->coin;
 	player_pos(map, map->map);
 	exit_pos(map, map->map);
 	if (!check_path(map, map->cpymap, map->player_pos.y, map->player_pos.x))
@@ -106,4 +109,5 @@ void	valid_path(t_game *game, t_map *map)
 			ft_error("Checking path error, unreachable coins");
 		ft_error("Checking path error, unreachable exit");
 	}
+	map->coin = coins;
 }
