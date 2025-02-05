@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 00:41:00 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/04 21:24:22 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/05 03:44:23 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static void	ft_free_images(t_game *game, t_img *images)
 void	ft_free_mlx(t_game *game)
 {
 	if (!game)
-		return;
+		return ;
 	ft_free_textures(game->txture);
 	ft_free_images(game, game->images);
 }

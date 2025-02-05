@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:01:29 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/04 21:43:46 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/05 03:51:42 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_load_png(t_txture *txture, t_game *game)
 {
 	txture->coins = mlx_load_png("sprites/coin01.png");
 	txture->exit = mlx_load_png("sprites/exit.png");
-	if (!(txture->coins) || (!(txture->exit)))
+	if (!txture->coins || !txture->exit)
 	{
 		ft_freegame(game);
 		mlx_terminate(game->mlx);
@@ -34,15 +34,17 @@ static void	ft_load_png(t_txture *txture, t_game *game)
 
 static void	ft_load_txture(t_game *game, t_img *images, t_txture *txture)
 {
-	if (!(images->coins = mlx_texture_to_image(game->mlx, txture->coins))
-		|| !(images->exit = mlx_texture_to_image(game->mlx, txture->exit)))
+	images->coins = mlx_texture_to_image(game->mlx, txture->coins);
+	images->exit = mlx_texture_to_image(game->mlx, txture->exit);
+	if (!images->coins || !images->exit)
 	{
 		ft_freegame(game);
 		mlx_terminate(game->mlx);
 		ft_error("load texture error1");
 	}
-	if (!(images->floor = mlx_texture_to_image(game->mlx, txture->floor))
-		|| !(images->walls = mlx_texture_to_image(game->mlx, txture->walls)))
+	images->floor = mlx_texture_to_image(game->mlx, txture->floor);
+	images->walls = mlx_texture_to_image(game->mlx, txture->walls);
+	if (!images->floor || !images->walls)
 	{
 		ft_freegame(game);
 		mlx_terminate(game->mlx);
@@ -78,8 +80,8 @@ static void	ft_load_player(t_game *game, t_img *img, t_txture *txt)
 
 static void	render_map(t_game *game)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	y = 0;
 	while (y < game->map.length)
@@ -98,7 +100,7 @@ static void	render_map(t_game *game)
 void	process_images(t_game *game, t_img *images, t_txture *txture)
 {
 	game->mlx = mlx_init(game->map.width * 64, game->map.length * 64,
-		"So_long", false);
+			"So_long", false);
 	if (!game->mlx)
 	{
 		ft_freegame(game);

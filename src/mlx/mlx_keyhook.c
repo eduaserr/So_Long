@@ -31,7 +31,7 @@ void	update_pos(t_game *game, char move, int x, int y)
 	game->map.player_pos.y = y;
 }
 
-int	check_walls(t_game *game, char move, int x , int y)
+int	check_walls(t_game *game, char move, int x, int y)
 {
 	if (move == 'W')
 	{
