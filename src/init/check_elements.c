@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:05:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/05 04:48:38 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/05 05:07:13 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,10 @@ void	valid_path(t_game *game, t_map *map)
 		ft_error("Checking path error, unreachable exit");
 	}
 	map->coin = coins;
+	map->cpymap = ft_arrdup(map->map);
+	if (!map->cpymap)
+	{
+		ft_freegame(game);
+		ft_error("cpymap error");
+	}
 }

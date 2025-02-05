@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/04 21:11:27 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/05 04:54:19 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	init_values(t_game *game)
 	game->map.coin = 0;
 	game->map.floor = 0;
 	game->map.wall = 0;
+	game->map.moves = 0;
 	game->txture = init_txtures();
 	game->images = init_img();
 	if (!game->txture || !game->txture->player

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/04 21:21:45 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/05 05:20:18 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct s_map
 	int			wall;
 	int			coin;
 	int			exit;
+	int			moves;
 	t_player	player_pos;
 	t_exit		exit_pos;
 }		t_map;
@@ -139,6 +140,8 @@ void	get_fullmatrixlen(char **map, int *y, int *x);
 
 char	**ft_arrdup(char **arr);
 //	utils_mlx
+void	finish_game(t_game *game);
+
 void	set_keyimage(t_game *game, int y, int x);
 
 #endif

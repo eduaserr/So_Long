@@ -6,11 +6,34 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 03:22:14 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/05 03:46:26 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/05 05:20:01 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
+
+void	finish_game(t_game *game)
+{
+	int	player_y;
+	int	player_x;
+	int	exit_y;
+	int	exit_x;
+
+	player_y = game->map.player_pos.y;
+	player_x = game->map.player_pos.x;
+	exit_y = game->map.exit_pos.y;
+	exit_x = game->map.exit_pos.x;
+	if ((player_x == exit_x && player_y == exit_y)
+		&& game->map.coin == 0)
+	{
+		ft_freegame(game);
+		mlx_terminate(game->mlx);
+		ft_printf("---------------\n");
+		ft_printf("------WIN------\n");
+		ft_printf("---------------\n");
+		exit(EXIT_SUCCESS);
+	}
+}
 
 void	set_keyimage(t_game *game, int y, int x)
 {

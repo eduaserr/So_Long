@@ -62,8 +62,9 @@ static int	check_walls(t_map *map, char move, int x, int y)
 
 void	get_coin(t_game *game, char **map, int y, int x)
 {
-	if (map[y][x] == 'C' && game->map.coin != 0)
+	if (map[y][x] == 'C')
 		game->map.coin--;
+	map[y][x] = '0';
 }
 
 void	move_player(t_game *game, char move)
@@ -71,36 +72,16 @@ void	move_player(t_game *game, char move)
 	int	x;
 	int	y;
 
+	game->map.moves++;
 	x = game->map.player_pos.x;
 	y = game->map.player_pos.y;
 	if (check_walls(&game->map, move, x, y))
-	{
-		get_coin(game, game->map.map, y, x);
 		update_pos(game, move, x, y);
-	}
-}
-
-static void	finish_game(t_game *game)
-{
-	int	player_y;
-	int	player_x;
-	int	exit_y;
-	int	exit_x;
-
-	player_y = game->map.player_pos.y;
-	player_x = game->map.player_pos.x;
-	exit_y = game->map.exit_pos.y;
-	exit_x = game->map.exit_pos.x;
-	if ((player_x == exit_x && player_y == exit_y)
-		&& game->map.coin == 0)
-	{
-		ft_freegame(game);
-		mlx_terminate(game->mlx);
-		ft_printf("---------------\n");
-		ft_printf("------WIN------\n");
-		ft_printf("---------------\n");
-		exit(EXIT_SUCCESS);
-	}
+	get_coin(game, game->map.cpymap, y, x);
+	ft_printf("\x1b[33mcoins left\x1b[0m : [%d]\n", game->map.coin);
+	ft_printf("\x1b[31mmoves\x1b[0m : %d\n", game->map.moves);
+	ft_printf("y : %d	x : %d\n\n\n",
+		game->map.player_pos.y, game->map.player_pos.x);
 }
 
 void	ft_key_hook(mlx_key_data_t key, void *param)
@@ -116,8 +97,7 @@ void	ft_key_hook(mlx_key_data_t key, void *param)
 		ft_printf("Exit game . . .❌🔌\n");
 		exit(EXIT_SUCCESS);
 	}
-	else if ((key.key == MLX_KEY_W || key.key == MLX_KEY_UP)
-		&& key.action == MLX_PRESS)
+	else if (key.key == MLX_KEY_W || key.key == MLX_KEY_UP)
 		move_player(game, 'W');
 	else if ((key.key == MLX_KEY_A || key.key == MLX_KEY_LEFT)
 		&& key.action == MLX_PRESS)
