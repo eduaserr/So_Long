@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:01:29 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/05 18:51:51 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/07 19:33:24 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ void	process_images(t_game *game, t_img *images, t_txture *txture)
 		mlx_terminate(game->mlx);
 		ft_error("Mlx init error");
 	}
+	mlx_set_icon(game->mlx, mlx_load_png("sprites/icon.png"));
 	ft_load_png(txture, game);
 	ft_load_txture(game, images, txture);
 	ft_load_player(game, images, txture);

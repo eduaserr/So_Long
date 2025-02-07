@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 19:49:39 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/05 18:33:05 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/07 18:16:24 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	**ft_arrdup(char **arr)
 	while (arr[i])
 	{
 		dup[i] = ft_strdup(arr[i]);
-		if (!dup)
+		if (!dup[i])
 		{
 			ft_freemap(dup);
 			return (NULL);
