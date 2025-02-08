@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/05 05:20:18 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/07 19:30:39 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,8 @@ int		check_extension(char **argv);
 void	process_images(t_game *game, t_img *images, t_txture *txture);
 //	mlx_keyhook
 void	ft_key_hook(mlx_key_data_t key, void *param);
+
+void	get_coin(t_game *game, char **map, int y, int x);
 /*	UTILS	*/
 //	utils_free
 void	ft_free_mlx(t_game *game);
@@ -132,9 +134,9 @@ void	ft_freemap(char **map);
 //	utils_map
 void	ft_error(char *str);
 
-void	ft_printlines(char *str);//borrar
+void	ft_printlines(char *str);//utils
 
-void	ft_printmap(char **file_map);//borrar
+void	ft_printmap(char **file_map);//utils
 
 void	get_fullmatrixlen(char **map, int *y, int *x);
 
