@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/07 19:26:16 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/08 01:39:02 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-t_txture	*init_txtures(void)
+static t_txture	*init_txtures(void)
 {
 	t_txture	*tmp;
 
@@ -33,7 +33,7 @@ t_txture	*init_txtures(void)
 	return (tmp);
 }
 
-t_img	*init_img(void)
+static t_img	*init_img(void)
 {
 	t_img	*tmp;
 

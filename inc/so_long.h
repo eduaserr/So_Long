@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/07 19:30:39 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/08 01:39:43 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,6 @@ void	get_map(t_game *game, char *file_map);
 void	check_elements(t_game *game);
 //	parse_input
 void	init_values(t_game *game);
-
-t_txture	*init_txtures(void);
-
-t_img	*init_img(void);
 
 int		check_extension(char **argv);
 /*	MLX	*/
