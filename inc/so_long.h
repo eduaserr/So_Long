@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/08 01:39:43 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/08 02:18:08 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,13 @@ void	player_pos(t_map *map, char **filemap);
 void	exit_pos(t_map *map, char **filemap);
 
 int		check_path(t_map *map, char **cpymap, int y, int x);
+/*	MLX	*/
+//	mlx_init
+void	process_images(t_game *game, t_img *images, t_txture *txture);
+//	mlx_keyhook
+void	get_coin(t_game *game, char **map, int y, int x);
+
+void	ft_key_hook(mlx_key_data_t key, void *param);
 /*	PARSE	*/
 //	get_map
 void	get_map(t_game *game, char *file_map);
@@ -113,13 +120,6 @@ void	check_elements(t_game *game);
 void	init_values(t_game *game);
 
 int		check_extension(char **argv);
-/*	MLX	*/
-//	mlx_init
-void	process_images(t_game *game, t_img *images, t_txture *txture);
-//	mlx_keyhook
-void	ft_key_hook(mlx_key_data_t key, void *param);
-
-void	get_coin(t_game *game, char **map, int y, int x);
 /*	UTILS	*/
 //	utils_free
 void	ft_free_mlx(t_game *game);

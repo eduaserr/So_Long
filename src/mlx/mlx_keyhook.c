@@ -60,7 +60,7 @@ static int	check_walls(t_map *map, char move, int x, int y)
 	return (1);
 }
 
-void	move_player(t_game *game, char move)
+static void	move_player(t_game *game, char move)
 {
 	int	x;
 	int	y;
