@@ -70,7 +70,7 @@ static void	move_player(t_game *game, char move)
 	y = game->map.player_pos.y;
 	if (check_walls(&game->map, move, x, y))
 		update_pos(game, move, x, y);
-	get_coin(game, game->map.cpymap, y, x);
+	check_coins(&game->map, move, x, y);
 	ft_printf("\x1b[33mcoins left\x1b[0m : [%d]\n", game->map.coin);
 	ft_printf("\x1b[31mmoves\x1b[0m : %d\n", game->map.moves);
 	ft_printf("y : %d	x : %d\n\n\n",

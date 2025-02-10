@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 03:22:14 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/08 04:56:51 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:44:46 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,29 @@ void	set_keyimage(t_game *game, int y, int x)
 			x * 64, y * 64);
 }
 
-void	get_coin(t_game *game, char **map, int y, int x)
+void	check_coins(t_map *map, char move, int x, int y)
 {
-	if (map[y][x] == 'C')
-		game->map.coin--;
-	map[y][x] = '0';
+	if (move == 'W')
+	{
+		if (map->map[y - 1][x] == 'C')
+		{
+			map->coin--;
+		}
+	}
+	else if (move == 'A')
+	{
+		if (map->map[y][x - 1] == 'C')
+			map->coin--;
+	}
+	else if (move == 'S')
+	{
+		if (map->map[y + 1][x] == 'C')
+			map->coin--;
+	}
+	else if (move == 'D')
+	{
+		if (map->map[y][x + 1] == 'C')
+			map->coin--;
+	}
+	map->cpymap[y][x] = '0';
 }

@@ -6,7 +6,7 @@
 /*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/08 02:18:08 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:44:37 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int		check_path(t_map *map, char **cpymap, int y, int x);
 //	mlx_init
 void	process_images(t_game *game, t_img *images, t_txture *txture);
 //	mlx_keyhook
-void	get_coin(t_game *game, char **map, int y, int x);
+void	check_coins(t_map *map, char move, int x, int y);
 
 void	ft_key_hook(mlx_key_data_t key, void *param);
 /*	PARSE	*/
