@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 19:49:39 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/08 01:30:02 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:55:32 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	ft_error(char *str)
 	exit(EXIT_FAILURE);
 }
 
-void	ft_printlines(char *str) //borrar
+void	ft_printlines(char *str)
 {
 	if (str)
 		ft_printf("line --> %s\n", str);
 }
 
-void	ft_printmap(char **file_map) //borrar
+void	ft_printmap(char **file_map)
 {
 	int	i;
 

@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/10 18:44:37 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:53:20 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <stdio.h>
-# include <stdbool.h>
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 # include "../lib/libft/libft.h"
 
@@ -130,9 +128,9 @@ void	ft_freemap(char **map);
 //	utils_map
 void	ft_error(char *str);
 
-void	ft_printlines(char *str);//utils
+void	ft_printlines(char *str);
 
-void	ft_printmap(char **file_map);//utils
+void	ft_printmap(char **file_map);
 
 void	get_fullmatrixlen(char **map, int *y, int *x);
 
