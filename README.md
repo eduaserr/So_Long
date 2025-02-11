@@ -37,6 +37,16 @@ To run the game, provide the path to a map file as an argument. The map file sho
 3. **Reaching the Exit**:
    - Once all coins are collected, the player can move to the exit to win the game.
 
+## Core Concepts
+
+### Map Parsing
+
+Parsing the map correctly is crucial for the game's functionality. The map must be validated to ensure it meets the required format and constraints. This includes checking for rectangular shape, surrounding walls, and the presence of necessary elements like the player, exit, and coins.
+
+### Understanding Libraries
+
+Understanding how to use external libraries, such as MLX42, is essential for developing your own projects. MLX42 provides the tools needed for graphical rendering, and learning to integrate and utilize these tools effectively is a key part of the project.
+
 ## Functions and Files
 
 ### Main Functions
