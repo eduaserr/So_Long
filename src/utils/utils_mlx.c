@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_mlx.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 03:22:14 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/10 18:44:46 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:56:37 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,5 @@ void	check_coins(t_map *map, char move, int x, int y)
 		if (map->map[y][x + 1] == 'C')
 			map->coin--;
 	}
-	map->cpymap[y][x] = '0';
+	map->map[y][x] = '0';
 }

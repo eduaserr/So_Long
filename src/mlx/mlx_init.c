@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 18:01:29 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/08 05:01:06 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:54:22 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,14 +99,6 @@ static void	render_map(t_game *game)
 
 void	process_images(t_game *game, t_img *images, t_txture *txture)
 {
-	mlx_texture_t	*icon;
-
-	icon = mlx_load_png("sprites/icon.png");
-	if (!icon)
-	{
-		ft_freegame(game);
-		ft_error("Mlx icon error");
-	}
 	game->mlx = mlx_init(game->map.width * 64, game->map.length * 64,
 			"So_long", false);
 	if (!game->mlx)
@@ -115,7 +107,6 @@ void	process_images(t_game *game, t_img *images, t_txture *txture)
 		mlx_terminate(game->mlx);
 		ft_error("Mlx init error");
 	}
-	mlx_set_icon(game->mlx, icon);
 	ft_load_png(txture, game);
 	ft_load_txture(game, images, txture);
 	ft_load_player(game, images, txture);
