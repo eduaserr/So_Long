@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/11 19:53:20 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:43:23 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	line_edges(t_game *game);
 
 void	column_edges(t_game *game);
 
-void	check_entities(t_map *map, char **filemap);
+void	check_entities(t_game *game, t_map *map, char **filemap);
 
 void	valid_path(t_game *game, t_map *map);
 //	check_path

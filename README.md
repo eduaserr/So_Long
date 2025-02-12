@@ -79,7 +79,6 @@ Understanding how to use external libraries, such as MLX42, is essential for dev
 
 - **utils_map.c**:
   - `ft_error`: Prints an error message and exits the program.
-  - `ft_printmap`: Prints the map to the console.
 
 - **utils_free.c**:
   - `ft_freegame`: Frees all allocated memory and resources used by the game.

@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:05:10 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/05 18:38:00 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:31:24 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,27 +50,26 @@ void	column_edges(t_game *game)
 	}
 }
 
-static void	count_entities(t_map *map, char **filemap, int i, int j)
+static void	count_entities(t_game *game, char **filemap, int i, int j)
 {
 	if (filemap[i][j] == 'P')
-		map->player++;
+		game->map.player++;
 	else if (filemap[i][j] == '0')
-		map->floor++;
+		game->map.floor++;
 	else if (filemap[i][j] == '1')
-		map->wall++;
+		game->map.wall++;
 	else if (filemap[i][j] == 'C')
-		map->coin++;
+		game->map.coin++;
 	else if (filemap[i][j] == 'E')
-		map->exit++;
+		game->map.exit++;
 	else
 	{
-		ft_freemap(filemap);
-		ft_freemap(map->cpymap);
+		ft_freegame(game);
 		ft_error("invalid entities map error");
 	}
 }
 
-void	check_entities(t_map *map, char **filemap)
+void	check_entities(t_game *game, t_map *map, char **filemap)
 {
 	int	i;
 	int	j;
@@ -82,15 +81,14 @@ void	check_entities(t_map *map, char **filemap)
 		j = 1;
 		while ((filemap[i][j]) && i < (map->length - 1) && j < (map->width - 1))
 		{
-			count_entities(map, filemap, i, j);
+			count_entities(game, filemap, i, j);
 			j++;
 		}
 		i++;
 	}
 	if (map->player != 1 || map->exit != 1 || map->coin < 1)
 	{
-		ft_freemap(filemap);
-		ft_freemap(map->cpymap);
+		ft_freegame(game);
 		ft_error("Entities count error");
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduaserr <eduaserr@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:18:18 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/08 01:39:02 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:27:27 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	init_values(t_game *game)
 {
 	game->mlx = NULL;
 	game->window = NULL;
+	game->map.cpymap = NULL;
 	game->map.length = 0;
 	game->map.width = 0;
 	game->map.player = 0;

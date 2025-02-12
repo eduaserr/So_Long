@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:51:25 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/04 21:15:53 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:36:20 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,9 @@ static char	**read_map(char *file_map)
 
 void	get_map(t_game *game, char *file_map)
 {
-	init_values(game);
+	game->map.map = NULL;
 	game->map.map = read_map(file_map);
+	init_values(game);
 	get_fullmatrixlen(game->map.map, &game->map.length, &game->map.width);
 	game->map.cpymap = ft_arrdup(game->map.map);
 	if (!game->map.cpymap)
@@ -96,6 +97,6 @@ void	check_elements(t_game *game)
 {
 	line_edges(game);
 	column_edges(game);
-	check_entities(&game->map, game->map.map);
+	check_entities(game, &game->map, game->map.map);
 	valid_path(game, &game->map);
 }
