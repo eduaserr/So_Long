@@ -6,7 +6,7 @@
 /*   By: eduaserr < eduaserr@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:31:50 by eduaserr          #+#    #+#             */
-/*   Updated: 2025/02/12 19:33:04 by eduaserr         ###   ########.fr       */
+/*   Updated: 2025/02/18 13:54:40 by eduaserr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,12 @@ typedef struct s_game
 	t_map		map;
 }		t_game;
 
-/*	INIT	*/
-//	check_elements
+/* **************************************** */
+/*					INIT					*/
+/* **************************************** */
+//////////////////////
+//	check_elements	//
+//////////////////////
 /**
  * @brief Check if edge lines limits are consecutive walls '1'.
  * 
@@ -116,7 +120,9 @@ void	check_entities(t_game *game, t_map *map, char **filemap);
  * @param map Pointer to the map structure.
  */
 void	valid_path(t_game *game, t_map *map);
-//	check_path
+//////////////////////
+//	check_path		//
+//////////////////////
 /**
  * @brief Get the player position in the map.
  * 
@@ -141,8 +147,12 @@ void	exit_pos(t_map *map, char **filemap);
  * @return int Returns 1 if there is a valid path, otherwise 0.
  */
 int		check_path(t_map *map, char **cpymap, int y, int x);
-/*	MLX	*/
-//	mlx_init
+/* **************************************** */
+/*					MLX						*/
+/* **************************************** */
+//////////////////////
+//	mlx_init		//
+//////////////////////
 /**
  * @brief Initializes the MLX42 library, loads textures and images, and renders the map.
  * 
@@ -151,7 +161,9 @@ int		check_path(t_map *map, char **cpymap, int y, int x);
  * @param txture Pointer to the textures structure.
  */
 void	process_images(t_game *game, t_img *images, t_txture *txture);
-//	mlx_keyhook
+//////////////////////
+//	mlx_keyhook		//
+//////////////////////
 /**
  * @brief Handles key press events for player movement and game exit.
  * 
@@ -168,8 +180,12 @@ void	ft_key_hook(mlx_key_data_t key, void *param);
  * @param y Y-coordinate.
  */
 void	check_coins(t_map *map, char move, int x, int y);
-/*	PARSE	*/
-//	get_map
+/* **************************************** */
+/*					PARSE					*/
+/* **************************************** */
+//////////////////////
+//	get_map			//
+//////////////////////
 /**
  * @brief Reads and processes the map file.
  * 
@@ -183,7 +199,9 @@ void	get_map(t_game *game, char *file_map);
  * @param game Pointer to the game structure.
  */
 void	check_elements(t_game *game);
-//	parse_input
+//////////////////////
+//	parse_input		//
+//////////////////////
 /**
  * @brief Initializes game values and structures.
  * 
@@ -198,7 +216,9 @@ void	init_values(t_game *game);
  */
 int		check_extension(char **argv);
 /*	UTILS	*/
-//	utils_free
+//////////////////////
+//	utils_free		//
+//////////////////////
 /**
  * @brief Frees all allocated memory and resources used by the game.
  * 
@@ -217,7 +237,9 @@ void	ft_free_mlx(t_game *game);
  * @param map The map to be freed.
  */
 void	ft_freemap(char **map);
-//	utils_map
+//////////////////////
+//	utils_map		//
+//////////////////////
 /**
  * @brief Prints an error message and exits the program.
  * 
@@ -251,7 +273,9 @@ void	get_fullmatrixlen(char **map, int *y, int *x);
  * @return char** Returns the duplicated array.
  */
 char	**ft_arrdup(char **arr);
-//	utils_mlx
+//////////////////////
+//	utils_mlx		//
+//////////////////////
 /**
  * @brief Ends the game when the player reaches the exit with all coins collected.
  * 
