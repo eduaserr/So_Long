@@ -103,17 +103,17 @@ For compilation, you can use the Makefile by typing `make` followed by the desir
 ## Functions
 
 Original Functions|Description
-:----------------:|:----------
-`main`|Initializes the game, processes the map, and starts the game loop.
-`process_images`|Initializes the MLX42 library, loads textures and images, and renders the map.
-`ft_key_hook`|Handles key press events for player movement and game exit.
-`check_elements`|Validates the map elements and ensures the map is surrounded by walls.
-`check_path`|Checks if there is a valid path for the player to collect all coins and reach the exit.
-`init_values`|Initializes game values and structures.
-`check_extension`|Validates the map file extension.
-`get_map`|Reads and processes the map file.
-`finish_game`|Ends the game when the player reaches the exit with all coins collected.
-`set_keyimage`|Sets the appropriate image for each map element.
-`ft_error`|Prints an error message and exits the program.
-`ft_printmap`|Prints the map to the console.
-`ft_freegame`|Frees all allocated memory and resources used by the game.
+----------------:|:----------
+[`main`](https://github.com/eduaserr/So_Long/blob/main/main.c)|Initializes the game, processes the map, and starts the game loop.
+[`process_images`](https://github.com/eduaserr/So_Long/tree/main/src/mlx/mlx_init.c)|Initializes the MLX42 library, loads textures and images, and renders the map.
+[`ft_key_hook`](https://github.com/eduaserr/So_Long/tree/main/src/mlx/mlx_keyhook.c)|Handles key press events for player movement and game exit.
+[`check_elements`](https://github.com/eduaserr/So_Long/tree/main/src/parse/get_map.c)|Validates the map elements and ensures the map is surrounded by walls.
+[`check_path`](https://github.com/eduaserr/So_Long/tree/main/src/init/check_path.c)|Checks if there is a valid path for the player to collect all coins and reach the exit.
+[`init_values`](https://github.com/eduaserr/So_Long/tree/main/src/parse/get_map.c)|Initializes game values and structures.
+[`check_extension`](https://github.com/eduaserr/So_Long/tree/main/src/parse/parse_input.c)|Validates the map file extension.
+[`get_map`](https://github.com/eduaserr/So_Long/tree/main/src/parse/get_map.c)|Reads and processes the map file.
+[`finish_game`](https://github.com/eduaserr/So_Long/tree/main/src/utils/utils_mlx.c)|Ends the game when the player reaches the exit with all coins collected.
+[`set_keyimage`](https://github.com/eduaserr/So_Long/tree/main/src/utils/utils_mlx.c)|Sets the appropriate image for each map element.
+[`ft_error`](https://github.com/eduaserr/So_Long/tree/main/src/utils/utils_map.c)|Prints an error message and exits the program.
+[`ft_printmap`](https://github.com/eduaserr/So_Long/tree/main/src/utils/utils_map.c)|Prints the map to the console.
+[`ft_freegame`](https://github.com/eduaserr/So_Long/tree/main/src/utils/utils_free.c)|Frees all allocated memory and resources used by the game.
