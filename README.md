@@ -117,3 +117,6 @@ Original Functions|Description
 [`ft_error`](https://github.com/eduaserr/So_Long/tree/main/src/utils/utils_map.c)|Prints an error message and exits the program.
 [`ft_printmap`](https://github.com/eduaserr/So_Long/tree/main/src/utils/utils_map.c)|Prints the map to the console.
 [`ft_freegame`](https://github.com/eduaserr/So_Long/tree/main/src/utils/utils_free.c)|Frees all allocated memory and resources used by the game.
+
+---
+*Proyecto desarrollado como parte del curriculum de 42.*
