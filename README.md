@@ -6,7 +6,7 @@
 <div align="justify">
 <code>So_Long</code> is a project from the <b>Common Core</b> of <b>42Cursus</b> where you will learn about basic game development and graphical programming using the MLX42 library in C. The objective is to create a small game where the player can move around a map, collect items, and reach an exit.
 </div>
-
+<br>
 <div align="center">
   <img src="assets/sl.gif" alt="Minishell Demo" width="200">
 </div>
