@@ -8,7 +8,7 @@
 </div>
 
 <div align="center">
-  <img src="assets/sl.gif" alt="Minishell Demo" width="800">
+  <img src="assets/sl.gif" alt="Minishell Demo" width="200">
 </div>
 
 ## Description
