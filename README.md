@@ -7,6 +7,8 @@
 <code>So_Long</code> is a project from the <b>Common Core</b> of <b>42Cursus</b> where you will learn about basic game development and graphical programming using the MLX42 library in C. The objective is to create a small game where the player can move around a map, collect items, and reach an exit.
 </div>
 
+🎬![Demo](assets/sl.gif)
+
 ## Description
 
 The So_Long program consists of a simple 2D game where the player navigates through a map, collects coins, and reaches the exit to win. The game is built using the MLX42 library for graphical rendering.
